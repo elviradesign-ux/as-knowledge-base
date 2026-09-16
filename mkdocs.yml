@@ -29,6 +29,8 @@ theme:
     - navigation.tracking
     - navigation.top
     - navigation.indexes
+    - navigation.instant
+    - navigation.instant.progress
     - toc.follow
     - search.suggest
     - search.highlight
@@ -37,23 +39,6 @@ theme:
 
 extra_css:
   - stylesheets/extra.css
-
-plugins:
-  - search
-  - i18n:
-      docs_structure: suffix
-      fallback_to_default: true
-      languages:
-        - locale: ru
-          name: Русский
-          default: true
-          build: true
-        - locale: en
-          name: English
-          build: true
-        - locale: uk
-          name: Українська
-          build: true
 
 markdown_extensions:
   - admonition
@@ -67,6 +52,8 @@ markdown_extensions:
 
 exclude_docs: |
   .DS_Store
+  *.en.md
+  *.uk.md
 
 nav:
   - Главная: index.md

@@ -7,10 +7,9 @@ Entity Relationships) instead of duplicating them.
 
 **Язык-источник — RU** (`00X.md`, `locale: ru`), по
 [LOCALIZATION_GUIDE](../../LOCALIZATION_GUIDE.md). Переводы — `00X.<lang>.md`,
-создаются из финального RU-источника; открываются переключателем языка в
-шапке сайта, а не отдельной ссылкой.
+создаются из финального RU-источника; на сайте пока не публикуются (только RU).
 
-| # | Статья (RU, источник) | Перевод EN | Сущность | Статус | Валидация |
+| # | Статья (RU, источник) | Перевод EN подготовлен | Сущность | Статус | Валидация |
 |---|---|---|---|---|---|
 | 001 | [Что такое товар](001-product.md) | ✓ | Product | **approved** | confirmed (Product↔Inventory Item: NV) |
 | 002 | [Что такое инвентарь](002-inventory.md) | ✓ | Inventory | **approved** | confirmed |
