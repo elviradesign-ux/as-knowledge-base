@@ -4,3 +4,22 @@
 .md-status {
   display: none;
 }
+
+/* Site name at the top of the left sidebar duplicates the header logo/title
+   on desktop. Keep it on mobile, where the same element doubles as the
+   drawer's back button. */
+@media screen and (min-width: 76.25em) {
+  .md-nav--primary > .md-nav__title[for="__drawer"] {
+    display: none;
+  }
+}
+
+/* Right sidebar (On this page): links in the primary accent color. */
+.md-sidebar--secondary .md-nav__link {
+  color: var(--md-primary-fg-color);
+}
+
+.md-sidebar--secondary .md-nav__link:hover,
+.md-sidebar--secondary .md-nav__link:focus {
+  color: var(--md-accent-fg-color);
+}
