@@ -37,6 +37,9 @@ theme:
     - content.code.copy
     - content.action.edit
 
+extra_css:
+  - stylesheets/extra.css
+
 markdown_extensions:
   - admonition
   - tables
@@ -53,19 +56,18 @@ exclude_docs: |
 nav:
   - Главная: index.md
   - Начать работу:
-      - Начало работы:
-          - С чего начать: articles/user-guide/045-getting-started.md
-          - Первый вход: articles/user-guide/046-first-login.md
-          - Подключить магазин Amazon: articles/user-guide/047-connect-amazon-store.md
-          - Настроить команду: articles/user-guide/048-set-up-team.md
-          - Создать первый товар: articles/user-guide/049-create-first-product.md
-          - Создать первый заказ: articles/user-guide/050-create-first-order.md
-          - Работа с инвентарём: articles/user-guide/051-use-inventory.md
-          - Управление коробками: articles/user-guide/052-manage-boxes.md
-          - Создать партию: articles/user-guide/053-create-batch.md
-          - Пользователи и права: articles/user-guide/054-manage-users-and-permissions.md
-          - Настроить уведомления: articles/user-guide/055-configure-notifications.md
-          - Как пользоваться поддержкой: articles/user-guide/056-use-support.md
+      - С чего начать: articles/user-guide/045-getting-started.md
+      - Первый вход: articles/user-guide/046-first-login.md
+      - Подключить магазин Amazon: articles/user-guide/047-connect-amazon-store.md
+      - Настроить команду: articles/user-guide/048-set-up-team.md
+      - Создать первый товар: articles/user-guide/049-create-first-product.md
+      - Создать первый заказ: articles/user-guide/050-create-first-order.md
+      - Работа с инвентарём: articles/user-guide/051-use-inventory.md
+      - Управление коробками: articles/user-guide/052-manage-boxes.md
+      - Создать партию: articles/user-guide/053-create-batch.md
+      - Пользователи и права: articles/user-guide/054-manage-users-and-permissions.md
+      - Настроить уведомления: articles/user-guide/055-configure-notifications.md
+      - Как пользоваться поддержкой: articles/user-guide/056-use-support.md
   - Продукт:
       - Концепции:
           - Обзор: articles/foundations/README.md
@@ -130,55 +132,52 @@ nav:
           - Роуты по ролям: reference/routes-by-role.md
           - Entity States: ENTITY_STATES.md
   - Обучение:
-      - Академия:
-          - Термины маркетплейса: articles/academy/025-marketplace-terms.md
-          - Что такое ASIN: articles/academy/026-asin.md
-          - Что такое SKU: articles/academy/027-sku.md
-          - ASIN vs SKU vs FNSKU: articles/academy/028-asin-vs-sku-vs-fnsku.md
-          - Что такое FBA: articles/academy/029-fba.md
-          - Что такое FBM: articles/academy/030-fbm.md
-          - Что такое MOQ: articles/academy/031-moq.md
-          - Что такое бренд: articles/academy/032-brand.md
-          - Что такое категория: articles/academy/033-category.md
-          - Что такое вариация: articles/academy/034-variation.md
-          - Баркод / UPC / EAN: articles/academy/035-barcode-upc-ean.md
-          - Что такое Amazon SP-API: articles/academy/036-amazon-sp-api.md
-          - Что такое прогноз запасов: articles/academy/037-inventory-forecasting.md
-          - Что такое out of stock: articles/academy/038-out-of-stock.md
-          - Что такое дозакупка (restock): articles/academy/039-restock.md
-          - Что такое Buy Box: articles/academy/040-buy-box.md
-          - Основы PPC: articles/academy/041-ppc-basics.md
-          - ACoS / TACoS / ROAS: articles/academy/042-acos-tacos-roas.md
-          - Что такое юнит-экономика: articles/academy/043-unit-economics.md
-          - Private Label vs Wholesale: articles/academy/044-private-label-vs-wholesale.md
+      - Термины маркетплейса: articles/academy/025-marketplace-terms.md
+      - Что такое ASIN: articles/academy/026-asin.md
+      - Что такое SKU: articles/academy/027-sku.md
+      - ASIN vs SKU vs FNSKU: articles/academy/028-asin-vs-sku-vs-fnsku.md
+      - Что такое FBA: articles/academy/029-fba.md
+      - Что такое FBM: articles/academy/030-fbm.md
+      - Что такое MOQ: articles/academy/031-moq.md
+      - Что такое бренд: articles/academy/032-brand.md
+      - Что такое категория: articles/academy/033-category.md
+      - Что такое вариация: articles/academy/034-variation.md
+      - Баркод / UPC / EAN: articles/academy/035-barcode-upc-ean.md
+      - Что такое Amazon SP-API: articles/academy/036-amazon-sp-api.md
+      - Что такое прогноз запасов: articles/academy/037-inventory-forecasting.md
+      - Что такое out of stock: articles/academy/038-out-of-stock.md
+      - Что такое дозакупка (restock): articles/academy/039-restock.md
+      - Что такое Buy Box: articles/academy/040-buy-box.md
+      - Основы PPC: articles/academy/041-ppc-basics.md
+      - ACoS / TACoS / ROAS: articles/academy/042-acos-tacos-roas.md
+      - Что такое юнит-экономика: articles/academy/043-unit-economics.md
+      - Private Label vs Wholesale: articles/academy/044-private-label-vs-wholesale.md
   - Контент:
-      - Статьи для маркетинга:
-          - Что такое Seller Exchange: articles/pillar/080-what-is-seller-exchange.md
-          - Полный гайд по построению Amazon-бизнеса: articles/pillar/081-complete-guide-amazon-business.md
-          - Автоматизация маркетплейса: articles/pillar/082-marketplace-automation.md
-          - Как управлять запасами Amazon: articles/pillar/083-how-to-manage-inventory.md
-          - Как избежать out of stock: articles/pillar/084-how-to-prevent-out-of-stock.md
-          - Как организовать команду Amazon-продавца: articles/pillar/085-organize-seller-team.md
-          - Единое рабочее пространство для операций: articles/pillar/086-one-workspace.md
-          - "Feature Stories v3": "AS Feature Stories v3.md"
-          - "Feature Stories — Production Roadmap": "AS Feature Stories Production Roadmap.md"
-          - "Feature Stories Matrix (EN)": AS_Feature_Stories_Matrix_EN.md
-          - "Feature Stories Matrix (RU)": AS_Feature_Stories_Matrix_RU.md
-          - "Feature Stories Matrix (UA)": AS_Feature_Stories_Matrix_UA.md
-          - "Seller Exchange — Feature Marketing Matrix": "Seller Exchange — Feature Marketing Matrix.md"
+      - Что такое Seller Exchange: articles/pillar/080-what-is-seller-exchange.md
+      - Полный гайд по построению Amazon-бизнеса: articles/pillar/081-complete-guide-amazon-business.md
+      - Автоматизация маркетплейса: articles/pillar/082-marketplace-automation.md
+      - Как управлять запасами Amazon: articles/pillar/083-how-to-manage-inventory.md
+      - Как избежать out of stock: articles/pillar/084-how-to-prevent-out-of-stock.md
+      - Как организовать команду Amazon-продавца: articles/pillar/085-organize-seller-team.md
+      - Единое рабочее пространство для операций: articles/pillar/086-one-workspace.md
+      - "Feature Stories v3": "AS Feature Stories v3.md"
+      - "Feature Stories — Production Roadmap": "AS Feature Stories Production Roadmap.md"
+      - "Feature Stories Matrix (EN)": AS_Feature_Stories_Matrix_EN.md
+      - "Feature Stories Matrix (RU)": AS_Feature_Stories_Matrix_RU.md
+      - "Feature Stories Matrix (UA)": AS_Feature_Stories_Matrix_UA.md
+      - "Seller Exchange — Feature Marketing Matrix": "Seller Exchange — Feature Marketing Matrix.md"
   - Документация:
-      - Справочник домена:
-          - Domain Model: DOMAIN_MODEL.md
-          - "Domain Model — открытые вопросы": DOMAIN_MODEL_OPEN_QUESTIONS.md
-          - Entity Relationships: ENTITY_RELATIONSHIPS.md
-          - Glossary: GLOSSARY.md
-          - Information Architecture: INFORMATION_ARCHITECTURE.md
-      - Управление базой знаний:
-          - Manifesto: MANIFESTO.md
-          - Style Guide: STYLE_GUIDE.md
-          - Contributing: CONTRIBUTING.md
-          - Article Template: ARTICLE_TEMPLATE.md
-          - Localization Guide: LOCALIZATION_GUIDE.md
-          - Production Pipeline: DOCUMENTATION_PRODUCTION_PIPELINE.md
-          - Content Roadmap: CONTENT_ROADMAP.md
-          - Release Checklist: RELEASE_CHECKLIST.md
+      - Domain Model: DOMAIN_MODEL.md
+      - "Domain Model — открытые вопросы": DOMAIN_MODEL_OPEN_QUESTIONS.md
+      - Entity Relationships: ENTITY_RELATIONSHIPS.md
+      - Glossary: GLOSSARY.md
+      - Information Architecture: INFORMATION_ARCHITECTURE.md
+  - Управление базой знаний:
+      - Manifesto: MANIFESTO.md
+      - Style Guide: STYLE_GUIDE.md
+      - Contributing: CONTRIBUTING.md
+      - Article Template: ARTICLE_TEMPLATE.md
+      - Localization Guide: LOCALIZATION_GUIDE.md
+      - Production Pipeline: DOCUMENTATION_PRODUCTION_PIPELINE.md
+      - Content Roadmap: CONTENT_ROADMAP.md
+      - Release Checklist: RELEASE_CHECKLIST.md

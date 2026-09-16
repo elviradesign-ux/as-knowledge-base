@@ -1,0 +1,6 @@
+/* Content-workflow status (approved/draft/blocked) is a KB metadata field,
+   not a Material "status.new/deprecated" badge — Material has no icon for
+   these values and falls back to a generic help "?" glyph. Hide it. */
+.md-status {
+  display: none;
+}
