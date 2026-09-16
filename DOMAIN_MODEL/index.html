@@ -1,0 +1,7919 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Внутренняя wiki по продукту Seller Exchange (AmazonService / AS)">
+      
+      
+      
+        <link rel="canonical" href="https://elviradesign-ux.github.io/as-knowledge-base/DOMAIN_MODEL/">
+      
+      
+        <link rel="prev" href="../articles/pillar/086-one-workspace/">
+      
+      
+        <link rel="next" href="../DOMAIN_MODEL_OPEN_QUESTIONS/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Domain Model - Seller Exchange — База знаний</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#domain-model-seller-exchange" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href=".." title="Seller Exchange — База знаний" class="md-header__button md-logo" aria-label="Seller Exchange — База знаний" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Seller Exchange — База знаний
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Domain Model
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Тёмная тема"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Тёмная тема" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Светлая тема"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Светлая тема" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/elviradesign-ux/as-knowledge-base" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    as-knowledge-base
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Seller Exchange — База знаний" class="md-nav__button md-logo" aria-label="Seller Exchange — База знаний" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Seller Exchange — База знаний
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/elviradesign-ux/as-knowledge-base" title="Перейти к репозиторию" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    as-knowledge-base
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Начать работу
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Начать работу
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/user-guide/045-getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    С чего начать
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/user-guide/046-first-login/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Первый вход
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/user-guide/047-connect-amazon-store/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Подключить магазин Amazon
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/user-guide/048-set-up-team/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Настроить команду
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/user-guide/049-create-first-product/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Создать первый товар
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/user-guide/050-create-first-order/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Создать первый заказ
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/user-guide/051-use-inventory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Работа с инвентарём
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/user-guide/052-manage-boxes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Управление коробками
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/user-guide/053-create-batch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Создать партию
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--blocked"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/user-guide/054-manage-users-and-permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пользователи и права
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/user-guide/055-configure-notifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Настроить уведомления
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/user-guide/056-use-support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как пользоваться поддержкой
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Продукт
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Продукт
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../articles/foundations/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Концепции
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Концепции
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/001-product/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое товар
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/002-inventory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое инвентарь
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/003-order/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое заказ
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/004-box/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое коробка
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/005-batch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое партия
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--draft"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/006-store/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое магазин
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/007-user/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое пользователь
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/008-role/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое роль
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/009-permission/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое право доступа
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/010-permission-preset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое пресет прав
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/011-supplier/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое поставщик
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/012-supplier-card/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое карточка поставщика
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/013-product-card/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое карточка товара
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/014-product-idea/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое идея
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/015-service-request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое заявка на услугу
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/016-proposal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое предложение
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/017-payment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое платёж
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/018-return/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое возврат
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/019-notification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое уведомление
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/020-support-ticket/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое тикет поддержки
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/021-report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое отчёт
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/022-campaign/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое кампания
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/foundations/023-ppc-metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое PPC-метрики
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сценарии
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Сценарии
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/workflows/070-researcher-creates-product-card/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ресёрчер создаёт карточку товара
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/workflows/071-supervisor-checks-product-card/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Супервайзер проверяет карточку товара
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/workflows/072-buyer-searches-supplier/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Байер ищет поставщика
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/workflows/073-client-creates-order-from-inventory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Клиент создаёт заказ из инвентаря
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/workflows/074-buyer-processes-order/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Байер обрабатывает заказ
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/workflows/075-storekeeper-receives-boxes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сторкипер принимает коробки
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/workflows/076-client-sends-boxes-into-batch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Клиент отправляет коробки в партию
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--blocked"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/workflows/077-storekeeper-forms-batch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сторкипер формирует партию
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--blocked"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/workflows/078-admin-manages-permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Админ настраивает права пользователя
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/workflows/079-user-creates-support-ticket/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пользователь создаёт тикет в поддержку
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WORKFLOW_CATALOG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Полный каталог сценариев
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../reference/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Справочник экранов
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Справочник экранов
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SCREEN_CATALOG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Полный каталог экранов
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/screens/orders-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Список заказов
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/screens/create-order-modal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Модалка создания заказа
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/screens/inventory-products/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Инвентарь — таблица товаров
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/screens/product-detail/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Товар — карточка (детали)
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/screens/warehouse-in-stock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Склад — коробки на складе
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/screens/my-warehouse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Мой склад (Storekeeper)
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/screens/batches-sent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Партии — отправленные
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/screens/users/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Пользователи
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/screens/permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Права пользователей
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/screens/messages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Сообщения (чат)
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/screens/notifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Уведомления
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/screens/support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Поддержка
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/modals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Модалки — справочник
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--reference"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Таблицы — справочник
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--reference"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Роли и доступ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Роли и доступ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PERMISSIONS_MATRIX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Permissions Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/routes-by-role/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Роуты по ролям
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--reference"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ENTITY_STATES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entity States
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обучение
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Обучение
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/academy/025-marketplace-terms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Термины маркетплейса
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/academy/026-asin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое ASIN
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/academy/027-sku/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое SKU
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/academy/028-asin-vs-sku-vs-fnsku/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ASIN vs SKU vs FNSKU
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/academy/029-fba/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое FBA
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/academy/030-fbm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое FBM
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/academy/031-moq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое MOQ
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/academy/032-brand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое бренд
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/academy/033-category/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое категория
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/academy/034-variation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое вариация
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/academy/035-barcode-upc-ean/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Баркод / UPC / EAN
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/academy/036-amazon-sp-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое Amazon SP-API
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/academy/037-inventory-forecasting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое прогноз запасов
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/academy/038-out-of-stock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое out of stock
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/academy/039-restock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое дозакупка (restock)
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/academy/040-buy-box/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое Buy Box
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/academy/041-ppc-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Основы PPC
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/academy/042-acos-tacos-roas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ACoS / TACoS / ROAS
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/academy/043-unit-economics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое юнит-экономика
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/academy/044-private-label-vs-wholesale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Private Label vs Wholesale
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Контент
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Контент
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/pillar/080-what-is-seller-exchange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое Seller Exchange
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/pillar/081-complete-guide-amazon-business/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Полный гайд по построению Amazon-бизнеса
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/pillar/082-marketplace-automation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Автоматизация маркетплейса
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/pillar/083-how-to-manage-inventory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как управлять запасами Amazon
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/pillar/084-how-to-prevent-out-of-stock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как избежать out of stock
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/pillar/085-organize-seller-team/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Как организовать команду Amazon-продавца
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../articles/pillar/086-one-workspace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Единое рабочее пространство для операций
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Документация
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Документация
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain Model
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Purpose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Scope
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-core-domain-areas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Core Domain Areas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-entity-catalog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Entity Catalog
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Entity Catalog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#marketplace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Marketplace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#store-shop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Store / Shop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niche" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niche
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Account
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sub-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sub-user
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Profile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Role
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-preset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission Preset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Product
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Product Card
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parent-product-variation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parent Product / Variation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ASIN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sku" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SKU — атрибут (не сущность)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fnsku" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FNSKU
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#barcode-upc-ean" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Barcode (UPC / EAN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Brand
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#category" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Category
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tag
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transparency-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transparency Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-idea-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Product Idea (Idea)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#research-product-product" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Research Product — статус Product (не сущность)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#milestone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supplier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supplier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supplier-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supplier Card
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supplier-search-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supplier Search Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-request-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service Request (Request)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proposal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proposal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Order Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Order Type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Order Item
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#payment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Payment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inventory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inventory-item-product" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inventory Item = Product (карточка товара пользователя)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing — набор отчётов (не сущность)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warehouse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Warehouse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#box" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Box
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#super-box-sb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Super Box (SB)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warehouse-task-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Warehouse Task (Task)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Destination
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tariff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tariff
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shipment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shipment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#report-business-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Report / Business Report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ppc-metrics-campaign" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PPC Metrics / Campaign
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voice-of-customer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voice of Customer — аналитический срез (не сущность)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finance-balance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finance / Balance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#announcement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Announcement — карточка услуги (объявление)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#support-ticket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support Ticket
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feedback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patch-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Patch Note
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-field-dynamic-column-dynamic-translation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dynamic Field / Dynamic Column / Dynamic Translation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tour-onboarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tour / Onboarding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parser-parsing-profile-parsing-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parser (Parsing Profile / Parsing Request)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connected-app-apps-marketplace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connected App / Apps Marketplace — в разработке
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Relationships
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-role-to-entity-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Role-to-Entity Matrix
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-module-to-entity-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Module-to-Entity Matrix
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-entity-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Entity Lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-knowledge-base-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Knowledge Base Mapping
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-framer-cms-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Framer CMS Mapping (рекомендация)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-review
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DOMAIN_MODEL_OPEN_QUESTIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain Model — открытые вопросы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ENTITY_RELATIONSHIPS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entity Relationships
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GLOSSARY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../INFORMATION_ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Information Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Идеи по улучшению
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Идеи по улучшению
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AS%20Feature%20Stories%20v3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature Stories v3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AS%20Feature%20Stories%20Production%20Roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature Stories — Production Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AS_Feature_Stories_Matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature Stories Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Seller%20Exchange%20%E2%80%94%20Feature%20Marketing%20Matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seller Exchange — Feature Marketing Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Управление базой знаний
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Управление базой знаний
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MANIFESTO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manifesto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../STYLE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Style Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CONTRIBUTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ARTICLE_TEMPLATE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Article Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LOCALIZATION_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Localization Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DOCUMENTATION_PRODUCTION_PIPELINE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Production Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CONTENT_ROADMAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Content Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RELEASE_CHECKLIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Purpose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Scope
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-core-domain-areas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Core Domain Areas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-entity-catalog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Entity Catalog
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Entity Catalog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#marketplace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Marketplace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#store-shop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Store / Shop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niche" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Niche
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Account
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sub-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sub-user
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Profile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Role
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-preset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission Preset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Product
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Product Card
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parent-product-variation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parent Product / Variation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ASIN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sku" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SKU — атрибут (не сущность)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fnsku" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FNSKU
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#barcode-upc-ean" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Barcode (UPC / EAN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Brand
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#category" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Category
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tag
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transparency-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transparency Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-idea-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Product Idea (Idea)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#research-product-product" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Research Product — статус Product (не сущность)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#milestone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supplier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supplier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supplier-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supplier Card
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supplier-search-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supplier Search Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-request-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service Request (Request)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proposal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proposal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Order Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Order Type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Order Item
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#payment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Payment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inventory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inventory-item-product" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inventory Item = Product (карточка товара пользователя)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing — набор отчётов (не сущность)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warehouse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Warehouse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#box" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Box
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#super-box-sb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Super Box (SB)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warehouse-task-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Warehouse Task (Task)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Destination
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tariff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tariff
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shipment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shipment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#report-business-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Report / Business Report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ppc-metrics-campaign" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PPC Metrics / Campaign
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voice-of-customer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voice of Customer — аналитический срез (не сущность)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finance-balance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finance / Balance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#announcement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Announcement — карточка услуги (объявление)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#support-ticket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support Ticket
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feedback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patch-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Patch Note
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-field-dynamic-column-dynamic-translation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dynamic Field / Dynamic Column / Dynamic Translation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tour-onboarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tour / Onboarding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parser-parsing-profile-parsing-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parser (Parsing Profile / Parsing Request)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connected-app-apps-marketplace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connected App / Apps Marketplace — в разработке
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Relationships
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-role-to-entity-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Role-to-Entity Matrix
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-module-to-entity-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Module-to-Entity Matrix
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-entity-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Entity Lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-knowledge-base-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Knowledge Base Mapping
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-framer-cms-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Framer CMS Mapping (рекомендация)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-review
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Навигация" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href=".." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Главная
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Документация
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/elviradesign-ux/as-knowledge-base/edit/main/docs/DOMAIN_MODEL.md" title="Редактировать страницу" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="domain-model-seller-exchange">Domain Model — Seller Exchange<a class="headerlink" href="#domain-model-seller-exchange" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Семантическое ядро документации Seller Exchange (внутр. кодовое имя —
+<strong>AmazonService / AS</strong>). Описывает бизнес-концепции платформы: сущности,
+домены, роли, жизненные циклы — и связывает их с остальной базой знаний.
+<strong>Связи между сущностями</strong> вынесены в парный документ —
+<a href="../ENTITY_RELATIONSHIPS/">ENTITY_RELATIONSHIPS</a> (держим синхронно).</p>
+<p>Собран из существующей КБ: <a href="../MANIFESTO/">MANIFESTO</a>,
+<a href="../INFORMATION_ARCHITECTURE/">INFORMATION_ARCHITECTURE</a>, <a href="../GLOSSARY/">GLOSSARY</a>,
+<a href="../WORKFLOW_CATALOG/">WORKFLOW_CATALOG</a>, <a href="../SCREEN_CATALOG/">SCREEN_CATALOG</a>,
+<a href="../PERMISSIONS_MATRIX/">PERMISSIONS_MATRIX</a>, <a href="../ENTITY_STATES/">ENTITY_STATES</a>,
+<a href="../LOCALIZATION_GUIDE/">LOCALIZATION_GUIDE</a>,
+<a href="../articles/screens/inventory-products/">articles/screens/inventory-products.md</a>.</p>
+<p><strong>Принцип:</strong> точность важнее полноты. Здесь только то, что подтверждено
+документацией. Непроверенное помечено <strong>Needs validation</strong> и вынесено в
+§11 Open Questions. Терминологические расхождения UI↔бэкенд приведены как есть.</p>
+</blockquote>
+<hr />
+<h2 id="1-purpose">1. Purpose<a class="headerlink" href="#1-purpose" title="Permanent link">&para;</a></h2>
+<p>DOMAIN_MODEL.md — единый смысловой слой, на который опираются Marketplace
+Academy, User Guide, Knowledge Base, таксономия Framer CMS, AI-ассистент,
+поиск, онбординг и будущая API-документация. Он отвечает на вопрос «из каких
+понятий состоит платформа и как они связаны», не привязываясь к реализации.</p>
+<h2 id="2-scope">2. Scope<a class="headerlink" href="#2-scope" title="Permanent link">&para;</a></h2>
+<p><strong>Покрывает:</strong> бизнес-сущности платформы, их связи, доменные области, роли,
+модули, жизненные циклы, привязку к статьям КБ, известные интеграции.</p>
+<p><strong>Сознательно НЕ является:</strong>
+- схемой базы данных;
+- API-референсом (API <code>data_filters</code> и т.п. — в raw-доках, см.
+  <a href="../CONTRIBUTING/">CONTRIBUTING</a>);
+- ER-диаграммой;
+- руководством по реализации.</p>
+<p>Имена таблиц/полей бэкенда используются только как доказательства
+существования сущности, а не как определение её структуры.</p>
+<hr />
+<h2 id="3-core-domain-areas">3. Core Domain Areas<a class="headerlink" href="#3-core-domain-areas" title="Permanent link">&para;</a></h2>
+<p>Домены и их подтверждённые сущности (сущности, не подтверждённые КБ, помечены
+<strong>NV</strong> = Needs validation):</p>
+<table>
+<thead>
+<tr>
+<th>Домен</th>
+<th>Сущности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Marketplace</td>
+<td>Marketplace, Store/Shop, Niche</td>
+</tr>
+<tr>
+<td>Organization</td>
+<td>Account, User, Sub-user, Profile</td>
+</tr>
+<tr>
+<td>Access Control</td>
+<td>Role, Permission, Permission Preset</td>
+</tr>
+<tr>
+<td>Product</td>
+<td>Product (= Inventory Item), Product Card, Parent Product, Variation, ASIN, FNSKU, Barcode, Brand, Category, Tag, Transparency Code · <em>атрибуты:</em> SKU, UPC, EAN</td>
+</tr>
+<tr>
+<td>Product Research</td>
+<td>Product Idea, Research Product <em>(=статус Product)</em>, Milestone</td>
+</tr>
+<tr>
+<td>Supplier &amp; Sourcing</td>
+<td>Supplier, Supplier Card, Supplier Search Request, Strategy</td>
+</tr>
+<tr>
+<td>Freelance / Services</td>
+<td>Service, Service Request, Proposal, Announcement, Service Provider (role)</td>
+</tr>
+<tr>
+<td>Orders</td>
+<td>Order, Order Status, Order Type, Order Item, Payment</td>
+</tr>
+<tr>
+<td>Inventory</td>
+<td>Inventory, Listing <em>(=набор отчётов)</em>, Return</td>
+</tr>
+<tr>
+<td>Warehouse</td>
+<td>Warehouse, Box, Super Box, Batch, Warehouse Task, Destination, Tariff</td>
+</tr>
+<tr>
+<td>Logistics</td>
+<td>Shipment</td>
+</tr>
+<tr>
+<td>Analytics</td>
+<td>Report, Business Report, Dashboard, PPC Metrics, Voice of Customer <em>(=срез)</em>, Widget (NV)</td>
+</tr>
+<tr>
+<td>Advertising</td>
+<td>Campaign, PPC Metrics</td>
+</tr>
+<tr>
+<td>Finance</td>
+<td>Finance / Balance, Payment, Transaction</td>
+</tr>
+<tr>
+<td>Collaboration</td>
+<td>Message</td>
+</tr>
+<tr>
+<td>Support</td>
+<td>Support Ticket, Feedback</td>
+</tr>
+<tr>
+<td>Notifications</td>
+<td>Notification</td>
+</tr>
+<tr>
+<td>Administration</td>
+<td>Patch Note, Dynamic Field/Column, Dynamic Translation, Tour/Onboarding, Milestone, Parser (Parsing Profile / Parsing Request)</td>
+</tr>
+<tr>
+<td>Integrations</td>
+<td>Integration (Amazon SP, SellerBoard)</td>
+</tr>
+<tr>
+<td>AI Tools</td>
+<td>AI Tool (AI Analyzer / AI Assistant)</td>
+</tr>
+<tr>
+<td>Apps Marketplace</td>
+<td><em>в разработке (DM6)</em></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-entity-catalog">4. Entity Catalog<a class="headerlink" href="#4-entity-catalog" title="Permanent link">&para;</a></h2>
+<p>Формат для каждой сущности: Definition · Business meaning · Modules · Roles ·
+Related entities · Workflows · Screens · Glossary · Articles · Notes.
+Прочерк «—» = в КБ не зафиксировано (не выдумываем).</p>
+<h3 id="marketplace">Marketplace<a class="headerlink" href="#marketplace" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> региональный маркетплейс Amazon, на котором продаётся товар.</li>
+<li><strong>Business meaning:</strong> определяет площадку продажи (Amazon.com — США и т.д.).</li>
+<li><strong>Modules:</strong> Inventory, Stores, Reports. <strong>Roles:</strong> Client, Admin.</li>
+<li><strong>Related entities:</strong> Store/Shop, Product, Listing. <strong>Workflows:</strong> WF-034.</li>
+<li><strong>Screens:</strong> SCR-120, SCR-280. <strong>Glossary:</strong> поле «Маркетплейс» (Inventory).</li>
+<li><strong>Articles:</strong> <a href="../articles/screens/inventory-products/">inventory-products</a>.</li>
+<li><strong>Notes:</strong> бэкенд-поле <code>marketPlaceCountry</code> (алиасы <code>marketplace</code>,
+  <code>marketPlaceCountryShortTitle</code>).</li>
+</ul>
+<h3 id="store-shop">Store / Shop<a class="headerlink" href="#store-shop" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> подключённый аккаунт Amazon Seller Central.</li>
+<li><strong>Business meaning:</strong> источник авто-обновляемых данных о товарах и продажах.</li>
+<li><strong>Modules:</strong> Stores. <strong>Roles:</strong> Client.</li>
+<li><strong>Related entities:</strong> Account, Marketplace, Product, Parsing Report.</li>
+<li><strong>Workflows:</strong> WF-034. <strong>Screens:</strong> SCR-280, SCR-281, SCR-M47 (<code>ShopModal</code>).</li>
+<li><strong>Glossary:</strong> Магазин (Store / Shop). <strong>Articles:</strong> —.</li>
+<li><strong>Notes:</strong> бэкенд <code>shops</code> (<code>ownerId</code>, <code>is_active</code>); саб-юзеры ограничены
+  <code>shopIds</code>.</li>
+</ul>
+<h3 id="niche">Niche<a class="headerlink" href="#niche" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> нишевый раздел биржи товаров.</li>
+<li><strong>Business meaning:</strong> витрина нишевых предложений на бирже.</li>
+<li><strong>Modules:</strong> Product Exchange. <strong>Roles:</strong> Client.</li>
+<li><strong>Related entities:</strong> Product, Product Card. <strong>Workflows:</strong> WF-005 (косвенно).</li>
+<li><strong>Screens:</strong> SCR-162 (<code>NicheView</code>). <strong>Glossary:</strong> Ниша. <strong>Articles:</strong> —.</li>
+</ul>
+<h3 id="account">Account<a class="headerlink" href="#account" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> учётная запись пользователя.</li>
+<li><strong>Business meaning:</strong> идентичность пользователя на платформе; владеет
+  магазинами, товарами, заказами; корень для саб-пользователей.</li>
+<li><strong>Modules:</strong> Organization, Users. <strong>Roles:</strong> любые (учётка у пользователя
+  любой роли). <strong>Related entities:</strong> User, Sub-user, Store.</li>
+<li><strong>Workflows:</strong> —. <strong>Screens:</strong> SCR-016, SCR-017. <strong>Glossary:</strong> —.</li>
+<li><strong>Notes:</strong> подтверждено (2026-07-01): Account = учётная запись пользователя;
+  <strong>Client</strong> — только роль (основной пользователь платформы, CODE=10);
+  <strong>User = platform-user</strong> — любой пользователь любой роли. Разграничение
+  закрыто (DM3).</li>
+</ul>
+<h3 id="user">User<a class="headerlink" href="#user" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> любой пользователь платформы любой роли (platform-user).</li>
+<li><strong>Business meaning:</strong> субъект действий и прав; имеет учётную запись (Account)
+  и роль.</li>
+<li><strong>Modules:</strong> Users. <strong>Roles:</strong> все. <strong>Related entities:</strong> Account, Role,
+  Sub-user, Profile.</li>
+<li><strong>Screens:</strong> SCR-016, SCR-017, SCR-300 (<code>PlatformUsersView</code>), SCR-301.</li>
+<li><strong>Glossary:</strong> Роль (косвенно). <strong>Notes:</strong> бэкенд <code>users</code> / <code>platform-users</code>.</li>
+</ul>
+<h3 id="sub-user">Sub-user<a class="headerlink" href="#sub-user" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> участник команды пользователя (саб-юзер); может быть у роли
+  любого типа.</li>
+<li><strong>Business meaning:</strong> делегирование доступа к части продуктов/магазинов внутри
+  команды пользователя.</li>
+<li><strong>Modules:</strong> Users, Access Control. <strong>Roles:</strong> любые (у пользователя любой роли).</li>
+<li><strong>Related entities:</strong> User, Permission, Permission Preset, Product, Store.</li>
+<li><strong>Workflows:</strong> WF-060. <strong>Screens:</strong> SCR-301, SCR-M06 (<code>LinkSubUserModal</code>).</li>
+<li><strong>Glossary:</strong> Саб-пользователь. <strong>Notes:</strong> доступ ограничен <code>applyAccessFilters</code>
+  (см. data scoping в <a href="../PERMISSIONS_MATRIX/">PERMISSIONS_MATRIX</a>). Подтверждено
+  (DM3): саб-юзер возможен у любой роли.</li>
+</ul>
+<h3 id="profile">Profile<a class="headerlink" href="#profile" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> профиль пользователя.</li>
+<li><strong>Business meaning:</strong> личные данные, достижения.</li>
+<li><strong>Modules:</strong> Profile. <strong>Roles:</strong> все. <strong>Related entities:</strong> User, Achievement (NV).</li>
+<li><strong>Screens:</strong> SCR-010 (<code>ProfileView</code>). <strong>Glossary:</strong> —.</li>
+<li><strong>Notes:</strong> ачивки/геймификация упоминаются в wiki, в КБ-глоссарии не описаны →
+  <strong>Needs validation</strong>.</li>
+</ul>
+<h3 id="role">Role<a class="headerlink" href="#role" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> набор прав RBAC.</li>
+<li><strong>Business meaning:</strong> определяет доступ к меню, данным и действиям.</li>
+<li><strong>Modules:</strong> Access Control. <strong>Roles:</strong> все (Admin управляет).</li>
+<li><strong>Related entities:</strong> Permission, Permission Preset, User.</li>
+<li><strong>Screens:</strong> SCR-302. <strong>Glossary:</strong> Роль.</li>
+<li><strong>Notes:</strong> 8 продуктовых ролей + служебные; коды в
+  <a href="../ENTITY_STATES/">ENTITY_STATES</a> (0=ADMIN…60=MODERATOR).
+  ⚠️ Freelancer (UI) = Service Provider (роуты); Storekeeper = «warehouse»
+  в таблицах бэкенда.</li>
+</ul>
+<h3 id="permission">Permission<a class="headerlink" href="#permission" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> отдельное право доступа.</li>
+<li><strong>Business meaning:</strong> атомарный доступ к фиче/данным внутри роли.</li>
+<li><strong>Modules:</strong> Access Control. <strong>Roles:</strong> Admin, Buyer.</li>
+<li><strong>Related entities:</strong> Role, Permission Preset, Sub-user.</li>
+<li><strong>Workflows:</strong> WF-060. <strong>Screens:</strong> SCR-302, SCR-M06 (<code>PermissionsModal</code>,
+  <code>SinglePermissionModal</code>, <code>GroupPermissionModal</code>). <strong>Glossary:</strong> —.</li>
+</ul>
+<h3 id="permission-preset">Permission Preset<a class="headerlink" href="#permission-preset" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> именованный набор доступов, уточняющий права внутри роли.</li>
+<li><strong>Business meaning:</strong> переиспользуемый шаблон прав.</li>
+<li><strong>Modules:</strong> Access Control. <strong>Roles:</strong> Admin.</li>
+<li><strong>Related entities:</strong> Permission, Role, Sub-user. <strong>Workflows:</strong> WF-060.</li>
+<li><strong>Screens:</strong> SCR-302. <strong>Glossary:</strong> Пресет разрешений.</li>
+<li><strong>Notes:</strong> подтверждено (DM10): <strong>жизненного цикла нет</strong> — это просто
+  именованный набор прав.</li>
+</ul>
+<h3 id="product">Product<a class="headerlink" href="#product" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> товар в каталоге, привязанный к ASIN.</li>
+<li><strong>Business meaning:</strong> центральная сущность: продаётся, заказывается, хранится.</li>
+<li><strong>Modules:</strong> Inventory, Product Exchange, Orders, Warehouse, Product Launch.</li>
+<li><strong>Roles:</strong> Client, Admin, Buyer, Researcher, Supervisor.</li>
+<li><strong>Related entities:</strong> Product Card, ASIN, Brand, Category, Tag, Supplier, Order, Box,
+  Inventory, Idea. <strong>Workflows:</strong> WF-001…008, WF-030.</li>
+<li><strong>Screens:</strong> SCR-120, SCR-121, SCR-123, SCR-124. <strong>Glossary:</strong> Карточка
+  продукта. <strong>Articles:</strong> <a href="../articles/screens/inventory-products/">inventory-products</a>.</li>
+<li><strong>Notes:</strong> бэкенд <code>products</code> — 197 фильтруемых колонок (≈ поля Инвентаря,
+  см. GLOSSARY «Inventory — поля таблицы»).</li>
+</ul>
+<h3 id="product-card">Product Card<a class="headerlink" href="#product-card" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> единица товара с данными ASIN, вариантами и статусом готовности.</li>
+<li><strong>Business meaning:</strong> объект ресёрча/проверки/публикации на бирже.</li>
+<li><strong>Modules:</strong> Product Research, Product Exchange, Inventory.</li>
+<li><strong>Roles:</strong> Researcher, Supervisor, Buyer, Client.</li>
+<li><strong>Related entities:</strong> Product, ASIN, Variation, Supplier Card, Idea.</li>
+<li><strong>Workflows:</strong> WF-001, WF-002, WF-004. <strong>Screens:</strong> SCR-124, SCR-180, SCR-181.</li>
+<li><strong>Glossary:</strong> Карточка продукта. <strong>Notes:</strong> статусы товара/карточки —
+  <a href="../ENTITY_STATES/">ENTITY_STATES</a> «Статусы товара» (0..300, ветка FROM_CLIENT_*).</li>
+</ul>
+<h3 id="parent-product-variation">Parent Product / Variation<a class="headerlink" href="#parent-product-variation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> товар может быть самостоятельным продуктом или вариацией
+  другого; Parent указывает на связь и зависимость между продуктами.</li>
+<li><strong>Business meaning:</strong> группировка связанных ASIN и зависимости между товарами.</li>
+<li><strong>Modules:</strong> Product, Inventory. <strong>Roles:</strong> Client, Researcher.</li>
+<li><strong>Related entities:</strong> Product, ASIN. <strong>Workflows:</strong> —. <strong>Screens:</strong> SCR-124.</li>
+<li><strong>Glossary:</strong> поле «Вариация» (Inventory).</li>
+<li><strong>Notes:</strong> подтверждено (DM18): Variation — это Product; Parent Product
+  указывает на связь/зависимость. <code>addVariation</code>, <code>addParent</code>, <code>BindProductModal</code>.</li>
+</ul>
+<h3 id="asin">ASIN<a class="headerlink" href="#asin" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> Amazon Standard Identification Number — идентификатор товара.</li>
+<li><strong>Business meaning:</strong> ключ товара на Amazon; проверяется ASIN-чекером.</li>
+<li><strong>Modules:</strong> Product, Inventory, Supervisor Settings. <strong>Roles:</strong> все продуктовые.</li>
+<li><strong>Related entities:</strong> Product, Product Card, FNSKU. <strong>Screens:</strong> SCR-320.</li>
+<li><strong>Glossary:</strong> ASIN. <strong>Notes:</strong> массовые операции — <code>addListOfAsin</code>,
+  <code>deleteSelectedAsins</code>.</li>
+</ul>
+<h3 id="sku">SKU — атрибут (не сущность)<a class="headerlink" href="#sku" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> складская единица (артикул) продавца.</li>
+<li><strong>Business meaning:</strong> идентификация позиции продавца.</li>
+<li><strong>Notes:</strong> подтверждено (DM13): <strong>SKU / UPC / EAN — атрибуты</strong>, а не отдельные
+  сущности (SKU — атрибут Product, UPC/EAN — атрибуты Barcode).</li>
+<li><strong>Related entities:</strong> Product (атрибут). <strong>Glossary:</strong> —.</li>
+</ul>
+<h3 id="fnsku">FNSKU<a class="headerlink" href="#fnsku" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> Fulfillment Network SKU — внутренний код Amazon для FBA.</li>
+<li><strong>Business meaning:</strong> отслеживание товара на складах FBA.</li>
+<li><strong>Modules:</strong> Inventory, Warehouse. <strong>Related entities:</strong> Product, Barcode, Box.</li>
+<li><strong>Glossary:</strong> Fnsku (Inventory). <strong>Notes:</strong> —.</li>
+</ul>
+<h3 id="barcode-upc-ean">Barcode (UPC / EAN)<a class="headerlink" href="#barcode-upc-ean" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> штрихкод товара (UPC, EAN или внутренний FNSKU).</li>
+<li><strong>Business meaning:</strong> идентификация и приёмка на складе.</li>
+<li><strong>Modules:</strong> Inventory, Warehouse. <strong>Roles:</strong> Client, Storekeeper.</li>
+<li><strong>Related entities:</strong> Product, FNSKU, Box. <strong>Screens:</strong> SCR-120, SCR-202.</li>
+<li><strong>Glossary:</strong> Баркод (Inventory). <strong>Notes:</strong> <code>addBarcode</code>, <code>BarHsCodeModal</code>,
+  <code>addProductBarcodeToBox</code>. Подтверждено (DM13): <strong>UPC/EAN — атрибуты</strong> Barcode,
+  не отдельные сущности.</li>
+</ul>
+<h3 id="brand">Brand<a class="headerlink" href="#brand" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> бренд/торговая марка товара.</li>
+<li><strong>Modules:</strong> Product, Inventory. <strong>Related entities:</strong> Product, Category.</li>
+<li><strong>Glossary:</strong> поле Brand (Inventory).</li>
+<li><strong>Notes:</strong> DM17: <strong>Brand Launch</strong> — отдельный процесс, связанный с Product
+  Launch (несколько успешных Product Launch = Brand Launch): стратегия продавца
+  от запуска продукта до собственного бренд-маркетплейса. Отдельного раздела/
+  флоу пока нет, описание стратегии отсутствует → детали <strong>Needs validation</strong>.</li>
+</ul>
+<h3 id="category">Category<a class="headerlink" href="#category" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> категория/подкатегория товара на Amazon.</li>
+<li><strong>Modules:</strong> Product, Inventory, Admin Settings. <strong>Related entities:</strong> Product.</li>
+<li><strong>Glossary:</strong> поля Category/Subcategory (Inventory). <strong>Screens:</strong> SCR-M
+  (<code>CategoryModal</code>, Admin → Настройки). <strong>Notes:</strong> —.</li>
+</ul>
+<h3 id="tag">Tag<a class="headerlink" href="#tag" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> ключевое слово для внутреннего поиска/сегментации товаров.</li>
+<li><strong>Modules:</strong> Product, Inventory, Admin Settings. <strong>Roles:</strong> Client, Admin.</li>
+<li><strong>Related entities:</strong> Product. <strong>Screens:</strong> SCR-120 (actions), Admin Settings/Tags.</li>
+<li><strong>Glossary:</strong> поле «Теги» (Inventory). <strong>Notes:</strong> <code>addTag</code>,<code>deleteSelectedTags</code>,
+  <code>TagsModal</code>, <code>TagsListModal</code>, бэкенд <code>tags</code>.</li>
+</ul>
+<h3 id="transparency-code">Transparency Code<a class="headerlink" href="#transparency-code" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> признак участия товара в программе Amazon Transparency.</li>
+<li><strong>Business meaning:</strong> защита от подделок.</li>
+<li><strong>Modules:</strong> Inventory. <strong>Related entities:</strong> Product. <strong>Glossary:</strong> поле Transparency
+  Codes (Inventory). <strong>Notes:</strong> —.</li>
+</ul>
+<h3 id="product-idea-idea">Product Idea (Idea)<a class="headerlink" href="#product-idea-idea" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> кандидат на запуск товара, проходящий пайплайн.</li>
+<li><strong>Business meaning:</strong> воронка выбора и запуска нового товара.</li>
+<li><strong>Modules:</strong> Product Launch. <strong>Roles:</strong> Client, Buyer.</li>
+<li><strong>Related entities:</strong> Product, Product Card, Supplier Search Request.</li>
+<li><strong>Workflows:</strong> WF-032. <strong>Screens:</strong> SCR-140…SCR-146, SCR-M07 (<code>IdeaModal</code>).</li>
+<li><strong>Glossary:</strong> Идея / Запуск товара. <strong>Notes:</strong> статусы идеи —
+  <a href="../ENTITY_STATES/">ENTITY_STATES</a> «Статусы идеи» (в источнике подпись
+  «Box Status», подтверждено что это идея). Бэкенд <code>ideas</code> (8 колонок).</li>
+</ul>
+<h3 id="research-product-product">Research Product — статус Product (не сущность)<a class="headerlink" href="#research-product-product" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> товар в диапазоне статусов ресёрча (0–15 / 200–205).</li>
+<li><strong>Business meaning:</strong> товар на стадии исследования, видим Researcher и Buyer.</li>
+<li><strong>Modules:</strong> Product Research. <strong>Roles:</strong> Researcher, Buyer.</li>
+<li><strong>Related entities:</strong> Product, Product Card, Idea. <strong>Workflows:</strong> WF-001, WF-003.</li>
+<li><strong>Screens:</strong> SCR-123. <strong>Glossary:</strong> —.</li>
+<li><strong>Notes:</strong> подтверждено (DM4): <strong>не отдельная сущность</strong>, а Product в статусах
+  0–15 / 200–205. Возможна связь с Idea — уточняется (частично <strong>Needs validation</strong>).</li>
+</ul>
+<h3 id="milestone">Milestone<a class="headerlink" href="#milestone" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> веха (этап) — глобальная настраиваемая точка процесса.</li>
+<li><strong>Business meaning:</strong> контроль прохождения этапов заявки/идеи.</li>
+<li><strong>Modules:</strong> Administration, Freelance/Services, Product Launch.
+  <strong>Roles:</strong> Admin (настройка), Client, Freelancer.</li>
+<li><strong>Related entities:</strong> Service Request, Idea. <strong>Screens:</strong> SCR-M
+  (<code>MilestonesModal</code>, <code>MilestonesDetailsModal</code>), Admin → Настройки → Вехи.</li>
+<li><strong>Glossary:</strong> —. <strong>Notes:</strong> подтверждено (DM11): глобальная сущность,
+  крепится к <strong>Service Request</strong> (раздел Service Provider) и к <strong>Idea</strong>
+  (раздел Product Launch). Бэкенд <code>milestones</code> (<code>createdById</code>).</li>
+</ul>
+<h3 id="supplier">Supplier<a class="headerlink" href="#supplier" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> поставщик товара.</li>
+<li><strong>Business meaning:</strong> источник закупки; находится Buyer, верифицируется Supervisor.</li>
+<li><strong>Modules:</strong> Supplier &amp; Sourcing, Orders. <strong>Roles:</strong> Buyer, Supervisor.</li>
+<li><strong>Related entities:</strong> Supplier Card, Product, Order. <strong>Workflows:</strong> WF-003, WF-020.</li>
+<li><strong>Screens:</strong> SCR-190, SCR-M (<code>SupplierModal</code>,<code>AddSupplierModal</code>).</li>
+<li><strong>Glossary:</strong> Поставщик. <strong>Notes:</strong> бэкенд <code>supplier</code> (<code>createdById</code>),
+  биржа поставщиков — <code>status=PUBLISHED</code>.</li>
+</ul>
+<h3 id="supplier-card">Supplier Card<a class="headerlink" href="#supplier-card" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> карточка поставщика (набор данных о предложении поставщика).</li>
+<li><strong>Business meaning:</strong> привязывается к товару/идее, публикуется на бирже.</li>
+<li><strong>Modules:</strong> Supplier &amp; Sourcing, Product Exchange. <strong>Roles:</strong> Buyer, Supervisor,
+  Client. <strong>Related entities:</strong> Supplier, Product, Order, Idea.</li>
+<li><strong>Screens:</strong> SCR-161, SCR-M (<code>SupplierCardModal</code>,<code>BindSupplierCardModal</code>,
+  <code>WholesaleCardModal</code>). <strong>Glossary:</strong> —.</li>
+<li><strong>Notes:</strong> статусы — <a href="../ENTITY_STATES/">ENTITY_STATES</a> «Статус карточки
+  поставщика» (IS_BEING_COLLECTED / HAS_DISPATCHED). Бэкенд <code>supplierCard</code>.</li>
+</ul>
+<h3 id="supplier-search-request">Supplier Search Request<a class="headerlink" href="#supplier-search-request" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> запрос на поиск поставщика.</li>
+<li><strong>Business meaning:</strong> поиск поставщика под товар/идею; доступен нескольким
+  ролям — Client может искать поставщиков <strong>самостоятельно</strong> или <strong>через Buyer</strong>.</li>
+<li><strong>Modules:</strong> Supplier &amp; Sourcing, Product Launch. <strong>Roles:</strong> Client, Buyer,
+  Supervisor. <strong>Related entities:</strong> Supplier, Product Card, Idea. <strong>Workflows:</strong> WF-003.</li>
+<li><strong>Screens:</strong> SCR-191, SCR-192 (<code>SearchSupplierView</code>). <strong>Glossary:</strong> —.</li>
+<li><strong>Notes:</strong> подтверждено (DM7): выделен отдельно, т.к. процесс мульти-ролевой
+  (Client напрямую или через Buyer). Отражается ветвями статусов товара
+  (TO_BUYER_FOR_RESEARCH, FROM_CLIENT_*).</li>
+</ul>
+<h3 id="strategy">Strategy<a class="headerlink" href="#strategy" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> стратегия сорсинга (DROPSHIPPING, PRIVATE_LABEL,
+  ONLINE_ARBITRAGE_CHINA, WHOLESALE_USA).</li>
+<li><strong>Business meaning:</strong> способ закупки/бизнес-модель товара.</li>
+<li><strong>Modules:</strong> Product, Product Research. <strong>Roles:</strong> Client, Buyer.</li>
+<li><strong>Related entities:</strong> Product, Idea. <strong>Glossary:</strong> поле «Стратегия» (Inventory).</li>
+<li><strong>Notes:</strong> <a href="../ENTITY_STATES/">ENTITY_STATES</a> «Стратегия сорсинга» (в источнике
+  подпись «Task Priority», подтверждено что это стратегия). Wholesale — вес 40.</li>
+</ul>
+<h3 id="service">Service<a class="headerlink" href="#service" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> услуга фрилансера (Service Provider) на бирже услуг.</li>
+<li><strong>Business meaning:</strong> предложение фриланс-услуг для запусков на Amazon.</li>
+<li><strong>Modules:</strong> Freelance / Services. <strong>Roles:</strong> Freelancer (Service Provider).</li>
+<li><strong>Related entities:</strong> Service Request, Proposal. <strong>Workflows:</strong> WF-051.</li>
+<li><strong>Screens:</strong> SCR-265, SCR-M (<code>ServiceModal</code>,<code>CreateServiceModal</code>).</li>
+<li><strong>Glossary:</strong> —. <strong>Notes:</strong> вариации услуги — <code>CreateServiceVariationModal</code>.</li>
+</ul>
+<h3 id="service-request-request">Service Request (Request)<a class="headerlink" href="#service-request-request" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> заявка клиента на услугу на бирже.</li>
+<li><strong>Business meaning:</strong> спрос на фриланс-услугу; на неё откликаются Proposal'ами.</li>
+<li><strong>Modules:</strong> Freelance / Services. <strong>Roles:</strong> Client, Freelancer.</li>
+<li><strong>Related entities:</strong> Service, Proposal. <strong>Workflows:</strong> WF-033, WF-050.</li>
+<li><strong>Screens:</strong> SCR-260, SCR-261, SCR-262, SCR-M (<code>CreateRequestModal</code>,
+  <code>RequestModal</code>). <strong>Glossary:</strong> —.</li>
+<li><strong>Notes:</strong> бэкенд <code>requests</code> (<code>type='CUSTOM'</code>), <code>kind=MY/VACANT</code>.</li>
+</ul>
+<h3 id="proposal">Proposal<a class="headerlink" href="#proposal" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> предложение фрилансера в ответ на заявку.</li>
+<li><strong>Business meaning:</strong> отклик исполнителя на Service Request.</li>
+<li><strong>Modules:</strong> Freelance / Services. <strong>Roles:</strong> Freelancer, Client.</li>
+<li><strong>Related entities:</strong> Service Request, Service. <strong>Workflows:</strong> WF-050.</li>
+<li><strong>Screens:</strong> SCR-263, SCR-264, SCR-M (<code>ProposalModal</code>). <strong>Glossary:</strong> —.</li>
+<li><strong>Notes:</strong> бэкенд <code>proposals</code> (<code>createdById</code>). Actions <code>acceptDeal</code>/<code>rejectProposal</code>.</li>
+</ul>
+<h3 id="order">Order<a class="headerlink" href="#order" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> запрос клиента на закупку товара.</li>
+<li><strong>Business meaning:</strong> ядро операционного потока; обрабатывается Buyer,
+  комплектуется Storekeeper.</li>
+<li><strong>Modules:</strong> Orders. <strong>Roles:</strong> Client, Buyer, Admin.</li>
+<li><strong>Related entities:</strong> Product, Supplier, Box, Batch, Payment, Order Item (NV).</li>
+<li><strong>Workflows:</strong> WF-005, WF-006, WF-022, WF-023, WF-024, WF-030, WF-031.</li>
+<li><strong>Screens:</strong> SCR-100…107, SCR-M01 (<code>CreateOrderModal</code>), SCR-M03 (<code>EditOrderModal</code>).</li>
+<li><strong>Glossary:</strong> Заказ, Статус заказа. <strong>Articles:</strong>
+  <a href="../articles/screens/inventory-products/">inventory-products</a> (создание).</li>
+<li><strong>Notes:</strong> статусы — <a href="../ENTITY_STATES/">ENTITY_STATES</a> (0 FORMED…50 SHIPPED);
+  типы — Order Type. Бэкенд <code>orders</code> (22 колонки).</li>
+</ul>
+<h3 id="order-status">Order Status<a class="headerlink" href="#order-status" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> этап жизненного цикла заказа.</li>
+<li><strong>Related entities:</strong> Order. <strong>Glossary:</strong> Статус заказа.</li>
+<li><strong>Notes:</strong> канонические коды в <a href="../ENTITY_STATES/">ENTITY_STATES</a>; текстовая
+  цепочка вида Buyer — в <a href="../GLOSSARY/">GLOSSARY</a>.</li>
+</ul>
+<h3 id="order-type">Order Type<a class="headerlink" href="#order-type" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> тип заказа (LONG / STANDARD / URGENT / PROBLEMATIC).</li>
+<li><strong>Related entities:</strong> Order. <strong>Notes:</strong> <a href="../ENTITY_STATES/">ENTITY_STATES</a> «Типы заказа».</li>
+</ul>
+<h3 id="order-item">Order Item<a class="headerlink" href="#order-item" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> связка сущностей, принадлежащая Заказу (позиция заказа).</li>
+<li><strong>Business meaning:</strong> объединяет товар и связанные с ним объекты в рамках
+  одного заказа.</li>
+<li><strong>Modules:</strong> Orders. <strong>Roles:</strong> Client, Buyer.</li>
+<li><strong>Related entities:</strong> Order, Product. <strong>Workflows:</strong> WF-030, WF-031.</li>
+<li><strong>Screens:</strong> SCR-M01 (<code>CreateOrderModal</code>). <strong>Glossary:</strong> —.</li>
+<li><strong>Notes:</strong> подтверждено (DM1): Order Item — связка сущностей, принадлежащая
+  Заказу (Order содержит Order Item'ы).</li>
+</ul>
+<h3 id="payment">Payment<a class="headerlink" href="#payment" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> платёж (в т.ч. оплата поставщику).</li>
+<li><strong>Business meaning:</strong> денежное движение по заказу/поставщику.</li>
+<li><strong>Modules:</strong> Orders, Finance. <strong>Roles:</strong> Buyer, Client, Admin.</li>
+<li><strong>Related entities:</strong> Order, Supplier, Finance/Balance. <strong>Workflows:</strong> WF-023.</li>
+<li><strong>Screens:</strong> SCR-M (<code>SupplierPaymentModal</code>,<code>PaymentMethodsModal</code>).</li>
+<li><strong>Glossary:</strong> —. <strong>Notes:</strong> бэкенд <code>payments</code> (<code>recipient_id</code>).</li>
+</ul>
+<h3 id="inventory">Inventory<a class="headerlink" href="#inventory" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> каталог товаров клиента с аналитикой запасов/продаж/финансов.</li>
+<li><strong>Business meaning:</strong> операционный обзор товаров и точка создания заказов.</li>
+<li><strong>Modules:</strong> Inventory. <strong>Roles:</strong> Client, Admin.</li>
+<li><strong>Related entities:</strong> Product, Listing, Order, Box, Report. <strong>Workflows:</strong> WF-030.</li>
+<li><strong>Screens:</strong> SCR-120, SCR-121, SCR-122. <strong>Glossary:</strong> раздел «Inventory —
+  поля таблицы» (~180 полей). <strong>Articles:</strong>
+  <a href="../articles/screens/inventory-products/">inventory-products</a>.</li>
+</ul>
+<h3 id="inventory-item-product">Inventory Item = Product (карточка товара пользователя)<a class="headerlink" href="#inventory-item-product" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> карточка товара пользователя в его Инвентаре, за которой он
+  закрепляет ASIN и к которой привязывает купленную на бирже Supplier Card.</li>
+<li><strong>Business meaning:</strong> «свой» товар пользователя (в отличие от Supplier Card —
+  предложения поставщика, которое покупается на бирже и привязывается сюда).</li>
+<li><strong>Modules:</strong> Inventory. <strong>Roles:</strong> Client, Admin.</li>
+<li><strong>Related entities:</strong> Product, ASIN, Supplier Card.</li>
+<li><strong>Glossary:</strong> Карточка продукта. <strong>Notes:</strong> подтверждено (DM2):
+  <strong>Inventory Item = Product</strong>. Статусы VACANT/RESERVED/WAITING_INVITE/INVITED/
+  REGISTERED/READY_TO_CHECKING/IN_USE/UNLINKED
+  (<a href="../ENTITY_STATES/">ENTITY_STATES</a>) — это статусы карточки товара
+  пользователя <strong>в связке с Supplier Card</strong>.</li>
+</ul>
+<h3 id="listing">Listing — набор отчётов (не сущность)<a class="headerlink" href="#listing" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> набор отчётов по листингу товара на Amazon.</li>
+<li><strong>Business meaning:</strong> состояние листинга через отчёты.</li>
+<li><strong>Modules:</strong> Inventory. <strong>Roles:</strong> Client. <strong>Related entities:</strong> Product, Report.</li>
+<li><strong>Screens:</strong> SCR-122 (Inventory reports). <strong>Glossary:</strong> —.</li>
+<li><strong>Notes:</strong> подтверждено (DM5): <strong>Listing — это набор отчётов</strong>, а не отдельная
+  сущность. Бэкенд <code>productListingReports</code>.</li>
+</ul>
+<h3 id="return">Return<a class="headerlink" href="#return" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> возврат товара.</li>
+<li><strong>Modules:</strong> Inventory, Logistics. <strong>Roles:</strong> Client.</li>
+<li><strong>Related entities:</strong> Product, Order. <strong>Screens:</strong> SCR-M (<code>ReturnDetailsModal</code>).</li>
+<li><strong>Glossary:</strong> поле Returns (Inventory). <strong>Notes:</strong> бэкенд <code>inventoryReturns</code>.</li>
+</ul>
+<h3 id="warehouse">Warehouse<a class="headerlink" href="#warehouse" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> склад (преп-центр) хранения и обработки товара.</li>
+<li><strong>Business meaning:</strong> приёмка, хранение, распределение, формирование партий.</li>
+<li><strong>Modules:</strong> Warehouse, Warehouse Management. <strong>Roles:</strong> Storekeeper, Client, Admin.</li>
+<li><strong>Related entities:</strong> Box, Batch, Task, Tariff, Destination, Shipment.</li>
+<li><strong>Workflows:</strong> WF-007, WF-042. <strong>Screens:</strong> SCR-200…205, SCR-203.</li>
+<li><strong>Glossary:</strong> Склад (косвенно). <strong>Notes:</strong> локации: AS China, AS USA, AWD,
+  преп-центры (см. Inventory-поля и Shipment status).</li>
+</ul>
+<h3 id="box">Box<a class="headerlink" href="#box" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> физическая единица хранения/отправки товара.</li>
+<li><strong>Business meaning:</strong> атом складского учёта; группируется/делится/мёржится.</li>
+<li><strong>Modules:</strong> Warehouse, Orders, Batches. <strong>Roles:</strong> Client, Storekeeper, Admin.</li>
+<li><strong>Related entities:</strong> Product, Order, Batch, Task, Destination, Tariff.</li>
+<li><strong>Workflows:</strong> WF-007, WF-031, WF-035. <strong>Screens:</strong> SCR-200, SCR-202, SCR-204,
+  SCR-M04 (<code>CreateBoxModal</code>), SCR-M05 (<code>GroupingBoxesModal</code>), <code>BoxModal</code>,
+  <code>EditBoxModal</code>, <code>MergeBoxesModal</code>, <code>RedistributeBoxModal</code>.</li>
+<li><strong>Glossary:</strong> Коробка. <strong>Notes:</strong> бэкенд <code>boxes</code> (33 колонки, <code>status</code>,<code>xid</code>,
+  <code>destination</code>,<code>logicsTariff</code>,<code>storekeeper</code>,<code>client</code>).</li>
+</ul>
+<h3 id="super-box-sb">Super Box (SB)<a class="headerlink" href="#super-box-sb" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> контейнер из коробок (обозначается <strong>SB</strong>).</li>
+<li><strong>Business meaning:</strong> объединяет несколько Box в один контейнер.</li>
+<li><strong>Modules:</strong> Warehouse. <strong>Roles:</strong> Storekeeper, Client.</li>
+<li><strong>Related entities:</strong> Box. <strong>Screens:</strong> SCR-M05 (<code>GroupingBoxesModal</code>),
+  <code>MergeBoxesModal</code>. <strong>Glossary:</strong> —.</li>
+<li><strong>Notes:</strong> подтверждено (DM14): Super Box существует, контейнер из коробок, SB.</li>
+</ul>
+<h3 id="batch">Batch<a class="headerlink" href="#batch" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> группа коробок, отправляемых вместе.</li>
+<li><strong>Business meaning:</strong> единица отгрузки на Amazon; имеет Prep ID.</li>
+<li><strong>Modules:</strong> Batches, Warehouse. <strong>Roles:</strong> Client, Storekeeper, Admin.</li>
+<li><strong>Related entities:</strong> Box, Shipment, Product, Order. <strong>Workflows:</strong> WF-035, WF-041.</li>
+<li><strong>Screens:</strong> SCR-240…242, SCR-M (<code>BatchInfoModal</code>,<code>EditBatchModal</code>,
+  <code>RequestToSendBatchModal</code>,<code>GeneratePrepIdModal</code>). <strong>Glossary:</strong> Партия.</li>
+<li><strong>Notes:</strong> бэкенд <code>batches</code> (28 колонок), статусы: awaiting-send/sent/archive.</li>
+</ul>
+<h3 id="warehouse-task-task">Warehouse Task (Task)<a class="headerlink" href="#warehouse-task-task" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> складская задача (приёмка/редактирование/разделение/объединение).</li>
+<li><strong>Business meaning:</strong> единица работы Storekeeper над коробками.</li>
+<li><strong>Modules:</strong> Tasks. <strong>Roles:</strong> Storekeeper, Client, Admin.</li>
+<li><strong>Related entities:</strong> Box, Product, Order. <strong>Workflows:</strong> WF-040.</li>
+<li><strong>Screens:</strong> SCR-220…223, SCR-M (<code>EditTaskModal</code>,<code>ReceiveBoxModal</code>).</li>
+<li><strong>Glossary:</strong> —. <strong>Notes:</strong> типы — <a href="../ENTITY_STATES/">ENTITY_STATES</a> «Типы
+  задач» (receive/edit/storekeeperEditBoxes/split/merge); бэкенд <code>tasks</code> (9 кол.).</li>
+</ul>
+<h3 id="destination">Destination<a class="headerlink" href="#destination" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> пункт назначения (адрес/место выгрузки).</li>
+<li><strong>Business meaning:</strong> куда отправляется коробка/партия.</li>
+<li><strong>Modules:</strong> Warehouse Management, Admin Settings. <strong>Roles:</strong> Storekeeper, Admin.</li>
+<li><strong>Related entities:</strong> Box, Batch, Tariff. <strong>Screens:</strong> SCR-M (<code>DestinationModal</code>),
+  Admin → Настройки → Пункты назначения. <strong>Glossary:</strong> —.</li>
+</ul>
+<h3 id="tariff">Tariff<a class="headerlink" href="#tariff" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> стоимость логистики/хранения по региону.</li>
+<li><strong>Business meaning:</strong> ценообразование складских/логистических операций.</li>
+<li><strong>Modules:</strong> Warehouse Management. <strong>Roles:</strong> Storekeeper.</li>
+<li><strong>Related entities:</strong> Box, Order, Destination. <strong>Workflows:</strong> WF-042.</li>
+<li><strong>Screens:</strong> SCR-203, SCR-M (<code>TariffModal</code>,<code>LogisticsTariffModal</code>).</li>
+<li><strong>Glossary:</strong> Тариф. <strong>Notes:</strong> бэкенд <code>tariff_type=20</code> (логистический).</li>
+</ul>
+<h3 id="shipment">Shipment<a class="headerlink" href="#shipment" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> движение товара/коробок между складами (Китай → партия → США).</li>
+<li><strong>Business meaning:</strong> логистический жизненный цикл товара.</li>
+<li><strong>Modules:</strong> Logistics, Warehouse. <strong>Roles:</strong> Storekeeper, Client.</li>
+<li><strong>Related entities:</strong> Box, Batch, Warehouse. <strong>Screens:</strong> SCR-240, SCR-241.</li>
+<li><strong>Glossary:</strong> —. <strong>Notes:</strong> статусы — <a href="../ENTITY_STATES/">ENTITY_STATES</a>
+  «Статусы товара на складе/отгрузки»; бэкенд <code>inventoryShipments</code>.</li>
+</ul>
+<h3 id="report-business-report">Report / Business Report<a class="headerlink" href="#report-business-report" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> отчёт (по продажам, инвентарю, аккаунту, PPC и т.д.).</li>
+<li><strong>Business meaning:</strong> аналитический срез данных.</li>
+<li><strong>Modules:</strong> Analytics, Inventory. <strong>Roles:</strong> Client, Manager/Supervisor, Admin.</li>
+<li><strong>Related entities:</strong> Product, Inventory, Campaign, Store. <strong>Screens:</strong> SCR-122,
+  SCR-281, SCR-M (<code>ReportModal</code>). <strong>Glossary:</strong> —.</li>
+<li><strong>Notes:</strong> множество типов отчётов (ORDERS, INVENTORY, RETURNS, BUSINESS_REPORTS,
+  INCOME, TRANSACTIONS, VOICE, FBA_INVENTORY и др.) подтверждены raw-докой
+  data_filters; их продуктовые определения в КБ пока не расписаны → §11.</li>
+</ul>
+<h3 id="dashboard">Dashboard<a class="headerlink" href="#dashboard" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> сводный экран показателей роли.</li>
+<li><strong>Modules:</strong> Dashboard. <strong>Roles:</strong> все (свой дэшборд на роль).</li>
+<li><strong>Related entities:</strong> Report, Widget (NV). <strong>Screens:</strong> SCR-011. <strong>Glossary:</strong> —.</li>
+<li><strong>Notes:</strong> Widget как сущность — <strong>Needs validation</strong>.</li>
+</ul>
+<h3 id="ppc-metrics-campaign">PPC Metrics / Campaign<a class="headerlink" href="#ppc-metrics-campaign" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> рекламные кампании Amazon и их метрики.</li>
+<li><strong>Business meaning:</strong> платное продвижение и его эффективность.</li>
+<li><strong>Modules:</strong> Advertising, Analytics. <strong>Roles:</strong> Client.</li>
+<li><strong>Related entities:</strong> Product, Report. <strong>Glossary:</strong> поля рекламы (Inventory:
+  Adv Sales, Tacos, Acos, Adv Cpc, Adv Ctr…).</li>
+<li><strong>Notes:</strong> отчёты CAMPAIGNS, PPC_ORGANIC, PPC_SALES_WEEKS/DAYS (raw data_filters).</li>
+</ul>
+<h3 id="voice-of-customer">Voice of Customer — аналитический срез (не сущность)<a class="headerlink" href="#voice-of-customer" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> отчёт Voice парсинга: показатели возвратов — процент возвратов
+  (<code>concession_rate</code>) и статус бейджа возвратов (<code>badge_status</code>).</li>
+<li><strong>Business meaning:</strong> качество клиентского опыта по возвратам; расширяет модуль
+  NCX rating критерием <strong>Return Badge</strong>.</li>
+<li><strong>Modules:</strong> Analytics, Stores (парсинг). <strong>Roles:</strong> все (по местам размещения).
+  <strong>Related entities:</strong> Product, Store, Return.</li>
+<li><strong>Glossary:</strong> поля Pcx Health, Ncx Orders, Ncx Rate (Inventory).</li>
+<li><strong>Notes:</strong> подтверждено (DM12): <strong>аналитический срез, не отдельная сущность</strong>.
+  Данные <code>concession_rate</code>/<code>badge_status</code> сохраняются в БД интеграций, выводятся
+  в отчёт «Магазины → Отчёты по парсингу → Voice» и в таблицу инвентаря;
+  критерий Return Badge добавляется в модуль NCX rating (модалки продукта,
+  заказа, коробки, задачи — Client/Buyer/Storekeeper). Star rating исключён.</li>
+</ul>
+<h3 id="review">Review<a class="headerlink" href="#review" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> отзыв покупателя (оценка + текст).</li>
+<li><strong>Modules:</strong> Analytics, Supplier &amp; Sourcing. <strong>Roles:</strong> Client.</li>
+<li><strong>Related entities:</strong> Product, Supplier. <strong>Screens:</strong> SCR-M (<code>ReviewsModal</code>,
+  <code>LeaveFeedbackModal</code>). <strong>Glossary:</strong> поля Rating/Reviews (Inventory).</li>
+</ul>
+<h3 id="finance-balance">Finance / Balance<a class="headerlink" href="#finance-balance" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> финансовый баланс и движение средств.</li>
+<li><strong>Business meaning:</strong> учёт доходов/расходов, пополнение/вывод.</li>
+<li><strong>Modules:</strong> Finance. <strong>Roles:</strong> почти все. <strong>Related entities:</strong> Payment, Transaction.</li>
+<li><strong>Workflows:</strong> WF-071. <strong>Screens:</strong> SCR-012, SCR-M (<code>AdminBalanceModal</code>,
+  <code>UserMoneyTransferModal</code>). <strong>Glossary:</strong> —.</li>
+<li><strong>Notes:</strong> отчёты INCOME, TRANSACTIONS, TOTAL_BALANCE (raw data_filters).</li>
+</ul>
+<h3 id="notification">Notification<a class="headerlink" href="#notification" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> уведомление пользователю.</li>
+<li><strong>Business meaning:</strong> оповещение о событиях (заказы, коробки, тарифы, заявки).</li>
+<li><strong>Modules:</strong> Notifications. <strong>Roles:</strong> Client, Buyer, Storekeeper, Freelancer, Admin.</li>
+<li><strong>Related entities:</strong> Order, Box, Tariff, Service Request. <strong>Screens:</strong> SCR-013.</li>
+<li><strong>Glossary:</strong> —. <strong>Notes:</strong> бэкенд <code>user_notifications</code>; у Client 5 вкладок.</li>
+</ul>
+<h3 id="message">Message<a class="headerlink" href="#message" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> сообщение во внутреннем чате.</li>
+<li><strong>Modules:</strong> Collaboration (Messages). <strong>Roles:</strong> все кроме Researcher.</li>
+<li><strong>Related entities:</strong> User. <strong>Workflows:</strong> WF-073. <strong>Screens:</strong> SCR-014,
+  SCR-M (<code>CreateNewChatModal</code>,<code>ForwardMessagesModal</code>). <strong>Glossary:</strong> —.</li>
+</ul>
+<h3 id="announcement">Announcement — карточка услуги (объявление)<a class="headerlink" href="#announcement" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> объявление Service Provider (Freelancer) о предоставляемой
+  услуге — карточка Услуги.</li>
+<li><strong>Business meaning:</strong> витрина услуги фрилансера на бирже.</li>
+<li><strong>Modules:</strong> Freelance / Services. <strong>Roles:</strong> Freelancer (создаёт), Client (видит).</li>
+<li><strong>Related entities:</strong> Service, Freelancer.</li>
+<li><strong>Screens:</strong> SCR-M (<code>SelectAnnouncementModal</code>). <strong>Glossary:</strong> —.</li>
+<li><strong>Notes:</strong> подтверждено (DM16): объявление поставщика услуг об услуге
+  (карточка Услуги). Бэкенд <code>announcements</code> (<code>createdById != userId</code> в vac).</li>
+</ul>
+<h3 id="support-ticket">Support Ticket<a class="headerlink" href="#support-ticket" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> запрос пользователя в поддержку.</li>
+<li><strong>Business meaning:</strong> обращение пользователя; проходит статусы обработки.</li>
+<li><strong>Modules:</strong> Support. <strong>Roles:</strong> все (создают), Admin/Moderator (обрабатывают).</li>
+<li><strong>Related entities:</strong> User, Feedback.</li>
+<li><strong>Workflows:</strong> WF-072. <strong>Screens:</strong> SCR-015, SCR-M (<code>CreateTicketModal</code>,
+  <code>TicketModal</code>). <strong>Glossary:</strong> —.</li>
+<li><strong>Notes:</strong> подтверждено (DM9): Support Ticket = запрос пользователя. Статусы
+  обработки — <a href="../ENTITY_STATES/">ENTITY_STATES</a> «Статус обращения» (Новый →
+  В обработке → Принято → Выполнено / Отклонено / Нужна информация).</li>
+</ul>
+<h3 id="feedback">Feedback<a class="headerlink" href="#feedback" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> ответ Админа/модератора на запрос пользователя (Support Ticket).</li>
+<li><strong>Business meaning:</strong> реакция поддержки на обращение (не путать с Review).</li>
+<li><strong>Modules:</strong> Support. <strong>Roles:</strong> Admin, Moderator (создают ответ).</li>
+<li><strong>Related entities:</strong> Support Ticket, User. <strong>Glossary:</strong> —.</li>
+<li><strong>Notes:</strong> подтверждено (DM9): Feedback = ответ Админа/модератора на Support
+  Ticket. Ранее статусы «обращения» (<a href="../ENTITY_STATES/">ENTITY_STATES</a>) относятся
+  к жизненному циклу Support Ticket. Бэкенд <code>feedback</code>.</li>
+</ul>
+<h3 id="patch-note">Patch Note<a class="headerlink" href="#patch-note" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> запись об обновлении платформы.</li>
+<li><strong>Modules:</strong> Administration. <strong>Roles:</strong> Admin, Moderator (просмотр — все).</li>
+<li><strong>Related entities:</strong> —. <strong>Screens:</strong> SCR-018, SCR-M (<code>PatchNoteModal</code>). <strong>Glossary:</strong> —.</li>
+</ul>
+<h3 id="dynamic-field-dynamic-column-dynamic-translation">Dynamic Field / Dynamic Column / Dynamic Translation<a class="headerlink" href="#dynamic-field-dynamic-column-dynamic-translation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> настраиваемые поля, вычисляемые колонки, переводы строк.</li>
+<li><strong>Business meaning:</strong> конфигурируемость таблиц и локализации без релиза.</li>
+<li><strong>Modules:</strong> Administration. <strong>Roles:</strong> Admin. <strong>Related entities:</strong> Product, Report.</li>
+<li><strong>Screens:</strong> SCR-306, SCR-307, SCR-M (<code>DynamicFieldModal</code>,<code>TranslationModal</code>).</li>
+<li><strong>Glossary:</strong> —. <strong>Notes:</strong> привязка колонок — wiki «Column Binding»; бэкенд
+  <code>dynamicColumns</code>, <code>DYNAMIC_COLUMNS: ["*"]</code> в data_filters.</li>
+</ul>
+<h3 id="tour-onboarding">Tour / Onboarding<a class="headerlink" href="#tour-onboarding" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> обучающий тур/сценарий онбординга.</li>
+<li><strong>Modules:</strong> Administration. <strong>Roles:</strong> Admin (настройка), все (прохождение).</li>
+<li><strong>Related entities:</strong> Role. <strong>Screens:</strong> SCR-308, SCR-M (<code>ToursModal</code>). <strong>Glossary:</strong> —.</li>
+<li><strong>Notes:</strong> бэкенд <code>tours</code> (видимость по роли: role=user.role OR -1).</li>
+</ul>
+<h3 id="parser-parsing-profile-parsing-request">Parser (Parsing Profile / Parsing Request)<a class="headerlink" href="#parser-parsing-profile-parsing-request" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> механизм парсинга и его профили/запросы.</li>
+<li><strong>Business meaning:</strong> сбор внешних данных (напр., по магазинам/ASIN).</li>
+<li><strong>Modules:</strong> Administration (Admin), Stores (отчёты парсинга у Client).</li>
+<li><strong>Roles:</strong> Admin; Client — отчёты. <strong>Related entities:</strong> Store, Product, Report.</li>
+<li><strong>Screens:</strong> SCR-303, SCR-304, SCR-281, SCR-M (<code>ParsingProfileModal</code>,
+  <code>ParsingReportsModal</code>,<code>ProfilesModal</code>). <strong>Glossary:</strong> —.</li>
+</ul>
+<h3 id="integration">Integration<a class="headerlink" href="#integration" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> внешняя интеграция данных.</li>
+<li><strong>Business meaning:</strong> источники данных: Amazon SP-API, SellerBoard.</li>
+<li><strong>Modules:</strong> Integrations, Inventory, Analytics. <strong>Roles:</strong> Client, Admin.</li>
+<li><strong>Related entities:</strong> Store, Report, Inventory. <strong>Glossary:</strong> —.</li>
+<li><strong>Notes:</strong> подтверждено эндпоинтами <code>integrations/*</code> и полями SellerBoard
+  (raw data_filters); в КБ отдельного описания интеграций нет → §11.</li>
+</ul>
+<h3 id="ai-tool">AI Tool<a class="headerlink" href="#ai-tool" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definition:</strong> AI-анализ данных (AI Analyzer / AI Assistant).</li>
+<li><strong>Business meaning:</strong> аналитика по фильтрам инвентаря, ассистент.</li>
+<li><strong>Modules:</strong> AI Tools, Inventory. <strong>Roles:</strong> Client.</li>
+<li><strong>Related entities:</strong> Inventory, Product. <strong>Screens:</strong> SCR-120, SCR-M (<code>AiAssistantModal</code>,
+  <code>ToolsModal</code>,<code>ToolModal</code>). <strong>Glossary:</strong> —.</li>
+<li><strong>Notes:</strong> AI Chat = модалка (из памяти проекта). Границы фичи — <strong>Needs validation</strong>.</li>
+</ul>
+<h3 id="connected-app-apps-marketplace">Connected App / Apps Marketplace — в разработке<a class="headerlink" href="#connected-app-apps-marketplace" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Notes:</strong> DM6 (2026-07-01): функционал <strong>в разработке</strong>. Пока моделируется
+  только «Integration» (Amazon SP, SellerBoard). Вернуться, когда фича появится.</li>
+</ul>
+<hr />
+<h2 id="5-relationships">5. Relationships<a class="headerlink" href="#5-relationships" title="Permanent link">&para;</a></h2>
+<p>Детальное описание связей между сущностями вынесено в отдельный документ —
+<strong><a href="../ENTITY_RELATIONSHIPS/">ENTITY_RELATIONSHIPS</a></strong> (единый источник правды по
+бизнес-связям: таблица связей с кардинальностью и evidence, граф связей по
+доменам, статистика). Здесь, в каталоге сущностей (§4), для каждой сущности
+приведён только короткий список <strong>Related entities</strong> — без описания самих связей.</p>
+<hr />
+<h2 id="6-role-to-entity-matrix">6. Role-to-Entity Matrix<a class="headerlink" href="#6-role-to-entity-matrix" title="Permanent link">&para;</a></h2>
+<p>Источник: <a href="../PERMISSIONS_MATRIX/">PERMISSIONS_MATRIX</a>, <a href="../WORKFLOW_CATALOG/">WORKFLOW_CATALOG</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Main Entities</th>
+<th>Typical Actions</th>
+<th>Related Workflows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Client</td>
+<td>Product, Inventory, Order, Box, Batch, Store, Idea, Service Request</td>
+<td>Создать заказ, распределить по коробкам, запустить товар, отправить партию, запросить услугу</td>
+<td>WF-005, WF-030, WF-031, WF-032, WF-033, WF-034, WF-035</td>
+</tr>
+<tr>
+<td>Buyer</td>
+<td>Order, Supplier, Supplier Card, Product (research), Payment</td>
+<td>Взять свободный заказ, найти поставщика, оплатить, ввести трек-номер</td>
+<td>WF-003, WF-006, WF-022, WF-023, WF-024</td>
+</tr>
+<tr>
+<td>Storekeeper</td>
+<td>Box, Batch, Warehouse Task, Tariff, Destination, Shipment</td>
+<td>Принять коробки, выполнить задачу, сформировать партию, настроить тариф</td>
+<td>WF-007, WF-040, WF-041, WF-042</td>
+</tr>
+<tr>
+<td>Supervisor</td>
+<td>Product Card, Supplier, ASIN</td>
+<td>Проверить карточку, верифицировать поставщика, настроить ASIN-чекер</td>
+<td>WF-002, WF-004, WF-020, WF-021</td>
+</tr>
+<tr>
+<td>Researcher</td>
+<td>Product Card, Product</td>
+<td>Создать карточку товара</td>
+<td>WF-001</td>
+</tr>
+<tr>
+<td>Admin</td>
+<td>User, Permission Preset, все сущности (надзор), Parser, Dynamic*</td>
+<td>Настроить права/онбординг, парсинг, конфигурация</td>
+<td>WF-060, WF-061, WF-062, WF-063</td>
+</tr>
+<tr>
+<td>Service Provider (Freelancer)</td>
+<td>Service, Service Request, Proposal</td>
+<td>Опубликовать услугу, откликнуться предложением</td>
+<td>WF-050, WF-051</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-module-to-entity-matrix">7. Module-to-Entity Matrix<a class="headerlink" href="#7-module-to-entity-matrix" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Primary Entities</th>
+<th>Secondary Entities</th>
+<th>Workflows</th>
+<th>Articles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inventory</td>
+<td>Product, Inventory, Listing</td>
+<td>Order, Box, Tag, Report</td>
+<td>WF-030</td>
+<td><a href="../articles/screens/inventory-products/">inventory-products</a></td>
+</tr>
+<tr>
+<td>Orders</td>
+<td>Order, Payment</td>
+<td>Product, Box, Supplier</td>
+<td>WF-005, WF-006, WF-030</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Product Launch</td>
+<td>Idea</td>
+<td>Product Card, Supplier Search Request</td>
+<td>WF-032</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Product Exchange</td>
+<td>Product Card, Supplier Card, Niche</td>
+<td>Product</td>
+<td>WF-005</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Ready to check</td>
+<td>Product Card</td>
+<td>ASIN, Supplier</td>
+<td>WF-002, WF-004</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Suppliers</td>
+<td>Supplier, Supplier Card</td>
+<td>Product, Order</td>
+<td>WF-003</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Warehouse</td>
+<td>Box, Warehouse Task</td>
+<td>Batch, Destination, Tariff, Shipment</td>
+<td>WF-007, WF-040</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Batches</td>
+<td>Batch</td>
+<td>Box, Shipment</td>
+<td>WF-035, WF-041</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Warehouse Management</td>
+<td>Tariff, Destination</td>
+<td>Warehouse</td>
+<td>WF-042</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Freelance/Service Exchange</td>
+<td>Service, Service Request, Proposal</td>
+<td>User</td>
+<td>WF-033, WF-050, WF-051</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Stores</td>
+<td>Store</td>
+<td>Marketplace, Parsing Report</td>
+<td>WF-034</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Finance</td>
+<td>Finance/Balance, Payment</td>
+<td>Transaction</td>
+<td>WF-071</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Users &amp; Permissions</td>
+<td>User, Sub-user, Role, Permission Preset</td>
+<td>—</td>
+<td>WF-060</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Messages</td>
+<td>Message</td>
+<td>User</td>
+<td>WF-073</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Notifications</td>
+<td>Notification</td>
+<td>Order, Box, Tariff</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Support</td>
+<td>Support Ticket, Feedback</td>
+<td>User</td>
+<td>WF-072</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Parsing</td>
+<td>Parser, Parsing Profile/Request</td>
+<td>Store, Report</td>
+<td>WF-063</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Settings (Admin)</td>
+<td>Dynamic Field/Column/Translation, Tour, Category, Tag, Milestone, Destination</td>
+<td>—</td>
+<td>WF-061, WF-062</td>
+<td>—</td>
+</tr>
+<tr>
+<td>AI Tools</td>
+<td>AI Tool</td>
+<td>Inventory, Product</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Dashboard</td>
+<td>Dashboard</td>
+<td>Report</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-entity-lifecycle">8. Entity Lifecycle<a class="headerlink" href="#8-entity-lifecycle" title="Permanent link">&para;</a></h2>
+<p>Коды — из <a href="../ENTITY_STATES/">ENTITY_STATES</a>. Полные списки там; здесь — суть.</p>
+<ul>
+<li><strong>Product / Product Card:</strong> NEW_PRODUCT(0) → RESEARCHER_CREATED(5) →
+  RESEARCHER_FOUND_SUPPLIER(10) → CHECKED_BY_SUPERVISOR(15) →
+  TO_BUYER_FOR_RESEARCH(30) → BUYER_PICKED(35) → BUYER_FOUND_SUPPLIER(40) →
+  COMPLETE_SUCCESS(70) → PURCHASED(75). Отклонения: 20/25/50/60/80/90/100.
+  Ветка «от клиента»: 200…300 (FROM_CLIENT_*).</li>
+<li><strong>Product Idea:</strong> New(5) → On checking(10) → Supplier search(13) →
+  Supplier found(14)/not found(15) → Card creating(16) → Adding ASIN(18) →
+  Realized(20) / Rejected(25) / Closed(30).</li>
+<li><strong>Order:</strong> FORMED(0)/NEW(1) → PENDING(2) → READY_FOR_BUYOUT(3) →
+  READY_TO_PROCESS(10) → AT_PROCESS(15) → READY_FOR_PAYMENT(16) →
+  PARTIALLY_PAYMENT(17) → [NEED_CONFIRMING_TO_PRICE_CHANGE(19)] →
+  PAID_TO_SUPPLIER(20) → TRACK_NUMBER_ISSUED(25) → NEED_CONFIRMING_RECEIVING(27)
+  → IN_STOCK(30) → AWAITING_SHIPMENT(45) → SHIPPED(50). Отмена: 35/40.</li>
+<li><strong>Supplier Request:</strong> отражается статусами товара (TO_BUYER_FOR_RESEARCH →
+  BUYER_FOUND_SUPPLIER / SUPPLIER_WAS_NOT_FOUND). Как самостоятельный
+  жизненный цикл — <strong>Needs validation</strong>.</li>
+<li><strong>Box / Shipment (на складе):</strong> NEW (в пути на преп Китая) →
+  ACCEPTED_IN_PROCESSING → IN_STOCK → REQUESTED_SEND_TO_BATCH →
+  [NEED_TO_UPDATE_THE_TARIFF / NEED_CONFIRMING_TO_DELIVERY_PRICE_CHANGE] →
+  IN_BATCH → IN_BATCH_ON_THE_WAY → FINISH_PREP_CENTR_USA.</li>
+<li><strong>Batch:</strong> awaiting-send → sent → archive (статусные вкладки; числовых кодов
+  в КБ нет → <strong>Needs validation</strong> на точные состояния).</li>
+<li><strong>Support Ticket:</strong> — в КБ нет статусов → <strong>Needs validation</strong>.</li>
+<li><strong>Feedback:</strong> Новый(10) → В обработке(20) → Принято(30) → Выполнено(35) /
+  Отклонено(40) / Нужна информация(50).</li>
+<li><strong>Permission Preset:</strong> статусы в КБ отсутствуют → <strong>Needs validation</strong>.</li>
+<li><strong>Supplier Card:</strong> IS_BEING_COLLECTED → HAS_DISPATCHED.</li>
+<li><strong>Business model (публикация):</strong> DRAFT(0) → ON_HOLD(5) → PUBLISHED(10)
+  (применяется к публикуемым сущностям, напр. поставщикам/картам на бирже).</li>
+</ul>
+<hr />
+<h2 id="9-knowledge-base-mapping">9. Knowledge Base Mapping<a class="headerlink" href="#9-knowledge-base-mapping" title="Permanent link">&para;</a></h2>
+<p>Рекомендации по статьям для ключевых сущностей (статус — что уже есть / нужно):</p>
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Glossary</th>
+<th>User Guide</th>
+<th>Workflow</th>
+<th>FAQ</th>
+<th>Academy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Product / Product Card</td>
+<td>✅ есть</td>
+<td>нужна</td>
+<td>WF-001/002</td>
+<td>нужна</td>
+<td>«Как устроен товар»</td>
+</tr>
+<tr>
+<td>Order</td>
+<td>✅ есть</td>
+<td>нужна</td>
+<td>WF-006</td>
+<td>«Почему заказ завис»</td>
+<td>«Жизненный цикл заказа»</td>
+</tr>
+<tr>
+<td>Inventory</td>
+<td>✅ (поля)</td>
+<td>✅ [inventory-products]</td>
+<td>WF-030</td>
+<td>нужна</td>
+<td>«Чтение таблицы инвентаря»</td>
+</tr>
+<tr>
+<td>Box / Batch</td>
+<td>нужна (Коробка✅, Партия✅)</td>
+<td>нужна</td>
+<td>WF-007/035/041</td>
+<td>нужна</td>
+<td>«Склад и партии»</td>
+</tr>
+<tr>
+<td>Idea / Product Launch</td>
+<td>✅ есть</td>
+<td>нужна</td>
+<td>WF-032</td>
+<td>нужна</td>
+<td>«Запуск товара»</td>
+</tr>
+<tr>
+<td>Supplier / Supplier Card</td>
+<td>✅ (Поставщик)</td>
+<td>нужна</td>
+<td>WF-003</td>
+<td>нужна</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Service Request / Proposal</td>
+<td>нужна</td>
+<td>нужна</td>
+<td>WF-033/050</td>
+<td>нужна</td>
+<td>«Биржа услуг»</td>
+</tr>
+<tr>
+<td>Permission Preset</td>
+<td>нужна</td>
+<td>нужна</td>
+<td>WF-060</td>
+<td>нужна</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Tariff / Destination</td>
+<td>Тариф✅</td>
+<td>нужна</td>
+<td>WF-042</td>
+<td>нужна</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-framer-cms-mapping">10. Framer CMS Mapping (рекомендация)<a class="headerlink" href="#10-framer-cms-mapping" title="Permanent link">&para;</a></h2>
+<p>Предлагаемые коллекции и поля (проект — не окончательная схема):</p>
+<p><strong>Articles</strong>
+- <code>title</code>, <code>slug</code>, <code>section</code> (из <a href="../INFORMATION_ARCHITECTURE/">INFORMATION_ARCHITECTURE</a>),
+  <code>audience</code> (роли), <code>status</code> (draft/review/published), <code>locale</code> (en/ru/zh/ua),
+  <code>owner</code>, <code>updated</code>, <code>body</code>, отношения: <code>relatedEntities[]</code>, <code>relatedTags[]</code>,
+  <code>relatedScreens[]</code> (SCR-ID), <code>relatedWorkflows[]</code> (WF-ID).</p>
+<p><strong>Entities</strong>
+- <code>name</code>, <code>domain</code> (из §3), <code>definition</code>, <code>businessMeaning</code>, <code>lifecycleRef</code>
+  (ENTITY_STATES), отношения: <code>relatedEntities[]</code>, <code>modules[]</code>, <code>roles[]</code>,
+  <code>glossaryTerms[]</code>, <code>articles[]</code>, <code>status</code> (confirmed / needs-validation).</p>
+<p><strong>Tags</strong>
+- <code>name</code>, <code>type</code> (domain / role / module / entity), <code>description</code>, <code>locale</code>.</p>
+<p>Метаданные для поиска/AI: <code>domain</code>, <code>roles</code>, <code>lifecycleState</code>, <code>sourceOfTruth</code>
+(ссылка на raw-док), <code>confidence</code> (confirmed / needs-validation).</p>
+<hr />
+<h2 id="11-open-questions">11. Open Questions<a class="headerlink" href="#11-open-questions" title="Permanent link">&para;</a></h2>
+<p>Терминологические расхождения (документируем оба варианта, не нормализуем):
+1. <strong>Freelancer (UI/design) = Service Provider (роуты/бэкенд)</strong> — одна роль,
+   два имени. Подтверждено; используем оба.
+2. <strong>Storekeeper (design) = «warehouse» (таблицы бэкенда)</strong> — одно понятие.
+3. <strong>Order status:</strong> текстовая цепочка вида Buyer (<a href="../GLOSSARY/">GLOSSARY</a>) vs
+   канонические числовые коды (<a href="../ENTITY_STATES/">ENTITY_STATES</a>) — не конфликт;
+   канон = ENTITY_STATES.
+4. Источник статусов помечал секции «Box Status»(=Idea) и «Task Priority»
+   (=Strategy) неверно — подтверждено пользователем, трактуем по смыслу.</p>
+<p>Разрешено пользователем 2026-07-01 (трекер — <a href="../DOMAIN_MODEL_OPEN_QUESTIONS/">DOMAIN_MODEL_OPEN_QUESTIONS</a>):
+5. ✅ <strong>Order Item</strong> — связка сущностей, принадлежащая Заказу (DM1).
+6. ✅ <strong>Inventory Item = Product</strong> — карточка товара пользователя; статусы
+   VACANT/…/UNLINKED = статусы этой карточки в связке с Supplier Card (DM2).
+7. ✅ <strong>Listing</strong> — набор отчётов, не сущность (DM5).
+8. ✅ <strong>Super Box</strong> — существует, контейнер из коробок (SB) (DM14).
+11. ✅ <strong>Account/User/Client/Sub-user</strong> — Account = учётка пользователя,
+    Client = только роль, User = platform-user (любая роль), Sub-user = член
+    команды у любой роли (DM3).
+12. ✅ <strong>Research Product</strong> — Product в статусах 0–15/200–205, не сущность;
+    связь с Idea уточняется (DM4).
+13. ✅ <strong>Supplier Search Request</strong> — мульти-ролевой процесс (Client сам или
+    через Buyer); выделен отдельно (DM7).
+14. ✅ <strong>SKU/UPC/EAN</strong> — атрибуты, не сущности (DM13).
+15. ✅ <strong>Voice of Customer</strong> — аналитический срез (отчёт Voice: concession_rate,
+    badge_status; Return Badge в NCX rating) (DM12).
+16. ✅ <strong>Support Ticket vs Feedback</strong> — Ticket = запрос пользователя; Feedback =
+    ответ Админа/модератора на запрос (DM9).
+17. ✅ <strong>Milestone</strong> — глобальная сущность; крепится к Service Request и к Idea (DM11).
+18. ✅ <strong>Announcement</strong> — карточка Услуги (объявление Service Provider) (DM16).
+19. ✅ <strong>Permission Preset</strong> — жизненного цикла нет, просто набор (DM10).
+21. ✅ <strong>Brand Launch</strong> — отдельный процесс (неск. Product Launch = Brand
+    Launch); флоу/раздела пока нет, описание стратегии отсутствует (DM17).
++ <strong>Parent↔Variation</strong> — Variation это Product; Parent = связь/зависимость (DM18).</p>
+<p>Остаются открытыми (<strong>Needs validation</strong>):
+9. <strong>Dashboard Widget</strong> — есть ли конфигурируемые виджеты? (DM15 — без ответа)
+10. <strong>Connected App / Apps Marketplace</strong> — функционал <strong>в разработке</strong> (DM6).
+19b. <strong>Batch lifecycle</strong> — точные коды/переходы (DM8 — ответ позже).
+20. <strong>Отчёты</strong> (ORDERS, INCOME, TRANSACTIONS, VOICE, FBA_INVENTORY и др.) —
+    какие описывать как продуктовые (DM19 — уточняется).
++ <strong>Research Product ↔ Idea</strong> — характер связи (часть DM4, уточняется).</p>
+<p>Тестовые данные: в листе логинов (<a href="../ENTITY_STATES/">ENTITY_STATES</a>) e-mail
+смещены относительно ролей — использовать только маппинг <code>CODE→ROLE</code>.</p>
+<hr />
+<h2 id="self-review">Self-review<a class="headerlink" href="#self-review" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Confirmed entities:</strong> приведены с источниками (Glossary / ENTITY_STATES /
+  SCREEN_CATALOG / WORKFLOW_CATALOG / PERMISSIONS_MATRIX / localizations / raw
+  data_filters).</li>
+<li><strong>Assumptions:</strong> все спорные трактовки помечены <strong>Needs validation</strong> и
+  продублированы в §11.</li>
+<li><strong>Terminology conflicts:</strong> §11 п.1–4.</li>
+<li><strong>Unresolved:</strong> §11 п.5–21.</li>
+</ul>
+<blockquote>
+<p>Документ оптимизирован на корректность, не на полноту. Меньший, но верный
+набор — предпочтительнее. При сомнении — см. Open Questions и уточнить.</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.path", "navigation.tracking", "navigation.top", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "toc.follow", "search.suggest", "search.highlight", "content.code.copy", "content.action.edit"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
