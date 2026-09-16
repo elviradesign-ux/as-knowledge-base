@@ -160,18 +160,19 @@ nav:
       - Как избежать out of stock: articles/pillar/084-how-to-prevent-out-of-stock.md
       - Как организовать команду Amazon-продавца: articles/pillar/085-organize-seller-team.md
       - Единое рабочее пространство для операций: articles/pillar/086-one-workspace.md
-      - "Feature Stories v3": "AS Feature Stories v3.md"
-      - "Feature Stories — Production Roadmap": "AS Feature Stories Production Roadmap.md"
-      - "Feature Stories Matrix (EN)": AS_Feature_Stories_Matrix_EN.md
-      - "Feature Stories Matrix (RU)": AS_Feature_Stories_Matrix_RU.md
-      - "Feature Stories Matrix (UA)": AS_Feature_Stories_Matrix_UA.md
-      - "Seller Exchange — Feature Marketing Matrix": "Seller Exchange — Feature Marketing Matrix.md"
   - Документация:
       - Domain Model: DOMAIN_MODEL.md
       - "Domain Model — открытые вопросы": DOMAIN_MODEL_OPEN_QUESTIONS.md
       - Entity Relationships: ENTITY_RELATIONSHIPS.md
       - Glossary: GLOSSARY.md
       - Information Architecture: INFORMATION_ARCHITECTURE.md
+      - Идеи по улучшению:
+          - "Feature Stories v3": "AS Feature Stories v3.md"
+          - "Feature Stories — Production Roadmap": "AS Feature Stories Production Roadmap.md"
+          - "Feature Stories Matrix (EN)": AS_Feature_Stories_Matrix_EN.md
+          - "Feature Stories Matrix (RU)": AS_Feature_Stories_Matrix_RU.md
+          - "Feature Stories Matrix (UA)": AS_Feature_Stories_Matrix_UA.md
+          - "Seller Exchange — Feature Marketing Matrix": "Seller Exchange — Feature Marketing Matrix.md"
   - Управление базой знаний:
       - Manifesto: MANIFESTO.md
       - Style Guide: STYLE_GUIDE.md
