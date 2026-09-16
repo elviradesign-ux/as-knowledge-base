@@ -7,14 +7,15 @@ Entity Relationships) instead of duplicating them.
 
 **Язык-источник — RU** (`00X.md`, `locale: ru`), по
 [LOCALIZATION_GUIDE](../../LOCALIZATION_GUIDE.md). Переводы — `00X.<lang>.md`,
-создаются из финального RU-источника.
+создаются из финального RU-источника; открываются переключателем языка в
+шапке сайта, а не отдельной ссылкой.
 
 | # | Статья (RU, источник) | Перевод EN | Сущность | Статус | Валидация |
 |---|---|---|---|---|---|
-| 001 | [Что такое товар](001-product.md) | [en](001-product.en.md) | Product | **approved** | confirmed (Product↔Inventory Item: NV) |
-| 002 | [Что такое инвентарь](002-inventory.md) | [en](002-inventory.en.md) | Inventory | **approved** | confirmed |
-| 003 | [Что такое заказ](003-order.md) | [en](003-order.en.md) | Order | **approved** | confirmed (Order Item: NV) |
-| 004 | [Что такое коробка](004-box.md) | [en](004-box.en.md) | Box (+ Super Box) | **approved** | confirmed (Shipment entity: NV) |
+| 001 | [Что такое товар](001-product.md) | ✓ | Product | **approved** | confirmed (Product↔Inventory Item: NV) |
+| 002 | [Что такое инвентарь](002-inventory.md) | ✓ | Inventory | **approved** | confirmed |
+| 003 | [Что такое заказ](003-order.md) | ✓ | Order | **approved** | confirmed (Order Item: NV) |
+| 004 | [Что такое коробка](004-box.md) | ✓ | Box (+ Super Box) | **approved** | confirmed (Shipment entity: NV) |
 | 005 | [Что такое партия](005-batch.md) | — | Batch | **draft · needs validation · blocked (DM8)** | **partial — DM8** |
 | 006 | [Что такое магазин](006-store.md) | — | Store | **approved** | confirmed |
 | 007 | [Что такое пользователь](007-user.md) | — | User | **approved** | confirmed (Account/User/Client — DM3) |
