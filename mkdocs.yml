@@ -1,5 +1,9 @@
 site_name: Seller Exchange — База знаний
 site_description: Внутренняя wiki по продукту Seller Exchange (AmazonService / AS)
+site_url: https://elviradesign-ux.github.io/as-knowledge-base/
+repo_url: https://github.com/elviradesign-ux/as-knowledge-base
+repo_name: as-knowledge-base
+edit_uri: edit/main/docs/
 docs_dir: docs
 site_dir: site
 use_directory_urls: true
@@ -21,10 +25,13 @@ theme:
         icon: material/weather-sunny
         name: Светлая тема
   features:
-    - navigation.tabs
+    - navigation.path
+    - navigation.tracking
     - navigation.top
     - navigation.indexes
     - navigation.instant
+    - navigation.instant.progress
+    - toc.follow
     - search.suggest
     - search.highlight
     - content.code.copy
@@ -45,128 +52,133 @@ exclude_docs: |
 
 nav:
   - Главная: index.md
-  - Начало работы:
-      - С чего начать: articles/user-guide/045-getting-started.md
-      - Первый вход: articles/user-guide/046-first-login.md
-      - Подключить магазин Amazon: articles/user-guide/047-connect-amazon-store.md
-      - Настроить команду: articles/user-guide/048-set-up-team.md
-      - Создать первый товар: articles/user-guide/049-create-first-product.md
-      - Создать первый заказ: articles/user-guide/050-create-first-order.md
-      - Работа с инвентарём: articles/user-guide/051-use-inventory.md
-      - Управление коробками: articles/user-guide/052-manage-boxes.md
-      - Создать партию: articles/user-guide/053-create-batch.md
-      - Пользователи и права: articles/user-guide/054-manage-users-and-permissions.md
-      - Настроить уведомления: articles/user-guide/055-configure-notifications.md
-      - Как пользоваться поддержкой: articles/user-guide/056-use-support.md
-  - Концепции:
-      - Обзор: articles/foundations/README.md
-      - Что такое товар: articles/foundations/001-product.md
-      - "What is a Product (EN)": articles/foundations/001-product.en.md
-      - Что такое инвентарь: articles/foundations/002-inventory.md
-      - "What is Inventory (EN)": articles/foundations/002-inventory.en.md
-      - Что такое заказ: articles/foundations/003-order.md
-      - "What is an Order (EN)": articles/foundations/003-order.en.md
-      - Что такое коробка: articles/foundations/004-box.md
-      - "What is a Box (EN)": articles/foundations/004-box.en.md
-      - Что такое партия: articles/foundations/005-batch.md
-      - Что такое магазин: articles/foundations/006-store.md
-      - Что такое пользователь: articles/foundations/007-user.md
-      - Что такое роль: articles/foundations/008-role.md
-      - Что такое право доступа: articles/foundations/009-permission.md
-      - Что такое пресет прав: articles/foundations/010-permission-preset.md
-      - Что такое поставщик: articles/foundations/011-supplier.md
-      - Что такое карточка поставщика: articles/foundations/012-supplier-card.md
-      - Что такое карточка товара: articles/foundations/013-product-card.md
-      - Что такое идея: articles/foundations/014-product-idea.md
-      - Что такое заявка на услугу: articles/foundations/015-service-request.md
-      - Что такое предложение: articles/foundations/016-proposal.md
-      - Что такое платёж: articles/foundations/017-payment.md
-      - Что такое возврат: articles/foundations/018-return.md
-      - Что такое уведомление: articles/foundations/019-notification.md
-      - Что такое тикет поддержки: articles/foundations/020-support-ticket.md
-      - Что такое отчёт: articles/foundations/021-report.md
-      - Что такое кампания: articles/foundations/022-campaign.md
-      - Что такое PPC-метрики: articles/foundations/023-ppc-metrics.md
-  - Сценарии:
-      - Ресёрчер создаёт карточку товара: articles/workflows/070-researcher-creates-product-card.md
-      - Супервайзер проверяет карточку товара: articles/workflows/071-supervisor-checks-product-card.md
-      - Байер ищет поставщика: articles/workflows/072-buyer-searches-supplier.md
-      - Клиент создаёт заказ из инвентаря: articles/workflows/073-client-creates-order-from-inventory.md
-      - Байер обрабатывает заказ: articles/workflows/074-buyer-processes-order.md
-      - Сторкипер принимает коробки: articles/workflows/075-storekeeper-receives-boxes.md
-      - Клиент отправляет коробки в партию: articles/workflows/076-client-sends-boxes-into-batch.md
-      - Сторкипер формирует партию: articles/workflows/077-storekeeper-forms-batch.md
-      - Админ настраивает права пользователя: articles/workflows/078-admin-manages-permissions.md
-      - Пользователь создаёт тикет в поддержку: articles/workflows/079-user-creates-support-ticket.md
-      - Полный каталог сценариев: WORKFLOW_CATALOG.md
-  - Справочник экранов:
-      - Обзор: reference/README.md
-      - Полный каталог экранов: SCREEN_CATALOG.md
-      - Список заказов: articles/screens/orders-list.md
-      - Модалка создания заказа: articles/screens/create-order-modal.md
-      - Инвентарь — таблица товаров: articles/screens/inventory-products.md
-      - Товар — карточка (детали): articles/screens/product-detail.md
-      - Склад — коробки на складе: articles/screens/warehouse-in-stock.md
-      - Мой склад (Storekeeper): articles/screens/my-warehouse.md
-      - "Партии — отправленные": articles/screens/batches-sent.md
-      - Пользователи: articles/screens/users.md
-      - Права пользователей: articles/screens/permissions.md
-      - Сообщения (чат): articles/screens/messages.md
-      - Уведомления: articles/screens/notifications.md
-      - Поддержка: articles/screens/support.md
-      - Модалки — справочник: reference/modals.md
-      - Таблицы — справочник: reference/tables.md
-  - Роли и доступ:
-      - Permissions Matrix: PERMISSIONS_MATRIX.md
-      - Роуты по ролям: reference/routes-by-role.md
-      - Entity States: ENTITY_STATES.md
-  - Академия:
-      - Термины маркетплейса: articles/academy/025-marketplace-terms.md
-      - Что такое ASIN: articles/academy/026-asin.md
-      - Что такое SKU: articles/academy/027-sku.md
-      - ASIN vs SKU vs FNSKU: articles/academy/028-asin-vs-sku-vs-fnsku.md
-      - Что такое FBA: articles/academy/029-fba.md
-      - Что такое FBM: articles/academy/030-fbm.md
-      - Что такое MOQ: articles/academy/031-moq.md
-      - Что такое бренд: articles/academy/032-brand.md
-      - Что такое категория: articles/academy/033-category.md
-      - Что такое вариация: articles/academy/034-variation.md
-      - Баркод / UPC / EAN: articles/academy/035-barcode-upc-ean.md
-      - Что такое Amazon SP-API: articles/academy/036-amazon-sp-api.md
-      - Что такое прогноз запасов: articles/academy/037-inventory-forecasting.md
-      - Что такое out of stock: articles/academy/038-out-of-stock.md
-      - Что такое дозакупка (restock): articles/academy/039-restock.md
-      - Что такое Buy Box: articles/academy/040-buy-box.md
-      - Основы PPC: articles/academy/041-ppc-basics.md
-      - ACoS / TACoS / ROAS: articles/academy/042-acos-tacos-roas.md
-      - Что такое юнит-экономика: articles/academy/043-unit-economics.md
-      - Private Label vs Wholesale: articles/academy/044-private-label-vs-wholesale.md
-  - Статьи для маркетинга:
-      - Что такое Seller Exchange: articles/pillar/080-what-is-seller-exchange.md
-      - Полный гайд по построению Amazon-бизнеса: articles/pillar/081-complete-guide-amazon-business.md
-      - Автоматизация маркетплейса: articles/pillar/082-marketplace-automation.md
-      - Как управлять запасами Amazon: articles/pillar/083-how-to-manage-inventory.md
-      - Как избежать out of stock: articles/pillar/084-how-to-prevent-out-of-stock.md
-      - Как организовать команду Amazon-продавца: articles/pillar/085-organize-seller-team.md
-      - Единое рабочее пространство для операций: articles/pillar/086-one-workspace.md
-      - "Feature Stories v3": "AS Feature Stories v3.md"
-      - "Feature Stories — Production Roadmap": "AS Feature Stories Production Roadmap.md"
-      - "Feature Stories Matrix (EN)": AS_Feature_Stories_Matrix_EN.md
-      - "Feature Stories Matrix (RU)": AS_Feature_Stories_Matrix_RU.md
-      - "Feature Stories Matrix (UA)": AS_Feature_Stories_Matrix_UA.md
-      - "Seller Exchange — Feature Marketing Matrix": "Seller Exchange — Feature Marketing Matrix.md"
-  - Справочник домена:
-      - Domain Model: DOMAIN_MODEL.md
-      - "Domain Model — открытые вопросы": DOMAIN_MODEL_OPEN_QUESTIONS.md
-      - Entity Relationships: ENTITY_RELATIONSHIPS.md
-      - Glossary: GLOSSARY.md
-      - Information Architecture: INFORMATION_ARCHITECTURE.md
-  - Управление базой знаний:
-      - Manifesto: MANIFESTO.md
-      - Style Guide: STYLE_GUIDE.md
-      - Contributing: CONTRIBUTING.md
-      - Article Template: ARTICLE_TEMPLATE.md
-      - Localization Guide: LOCALIZATION_GUIDE.md
-      - Production Pipeline: DOCUMENTATION_PRODUCTION_PIPELINE.md
-      - Content Roadmap: CONTENT_ROADMAP.md
-      - Release Checklist: RELEASE_CHECKLIST.md
+  - Начать работу:
+      - Начало работы:
+          - С чего начать: articles/user-guide/045-getting-started.md
+          - Первый вход: articles/user-guide/046-first-login.md
+          - Подключить магазин Amazon: articles/user-guide/047-connect-amazon-store.md
+          - Настроить команду: articles/user-guide/048-set-up-team.md
+          - Создать первый товар: articles/user-guide/049-create-first-product.md
+          - Создать первый заказ: articles/user-guide/050-create-first-order.md
+          - Работа с инвентарём: articles/user-guide/051-use-inventory.md
+          - Управление коробками: articles/user-guide/052-manage-boxes.md
+          - Создать партию: articles/user-guide/053-create-batch.md
+          - Пользователи и права: articles/user-guide/054-manage-users-and-permissions.md
+          - Настроить уведомления: articles/user-guide/055-configure-notifications.md
+          - Как пользоваться поддержкой: articles/user-guide/056-use-support.md
+  - Продукт:
+      - Концепции:
+          - Обзор: articles/foundations/README.md
+          - Что такое товар: articles/foundations/001-product.md
+          - "What is a Product (EN)": articles/foundations/001-product.en.md
+          - Что такое инвентарь: articles/foundations/002-inventory.md
+          - "What is Inventory (EN)": articles/foundations/002-inventory.en.md
+          - Что такое заказ: articles/foundations/003-order.md
+          - "What is an Order (EN)": articles/foundations/003-order.en.md
+          - Что такое коробка: articles/foundations/004-box.md
+          - "What is a Box (EN)": articles/foundations/004-box.en.md
+          - Что такое партия: articles/foundations/005-batch.md
+          - Что такое магазин: articles/foundations/006-store.md
+          - Что такое пользователь: articles/foundations/007-user.md
+          - Что такое роль: articles/foundations/008-role.md
+          - Что такое право доступа: articles/foundations/009-permission.md
+          - Что такое пресет прав: articles/foundations/010-permission-preset.md
+          - Что такое поставщик: articles/foundations/011-supplier.md
+          - Что такое карточка поставщика: articles/foundations/012-supplier-card.md
+          - Что такое карточка товара: articles/foundations/013-product-card.md
+          - Что такое идея: articles/foundations/014-product-idea.md
+          - Что такое заявка на услугу: articles/foundations/015-service-request.md
+          - Что такое предложение: articles/foundations/016-proposal.md
+          - Что такое платёж: articles/foundations/017-payment.md
+          - Что такое возврат: articles/foundations/018-return.md
+          - Что такое уведомление: articles/foundations/019-notification.md
+          - Что такое тикет поддержки: articles/foundations/020-support-ticket.md
+          - Что такое отчёт: articles/foundations/021-report.md
+          - Что такое кампания: articles/foundations/022-campaign.md
+          - Что такое PPC-метрики: articles/foundations/023-ppc-metrics.md
+      - Сценарии:
+          - Ресёрчер создаёт карточку товара: articles/workflows/070-researcher-creates-product-card.md
+          - Супервайзер проверяет карточку товара: articles/workflows/071-supervisor-checks-product-card.md
+          - Байер ищет поставщика: articles/workflows/072-buyer-searches-supplier.md
+          - Клиент создаёт заказ из инвентаря: articles/workflows/073-client-creates-order-from-inventory.md
+          - Байер обрабатывает заказ: articles/workflows/074-buyer-processes-order.md
+          - Сторкипер принимает коробки: articles/workflows/075-storekeeper-receives-boxes.md
+          - Клиент отправляет коробки в партию: articles/workflows/076-client-sends-boxes-into-batch.md
+          - Сторкипер формирует партию: articles/workflows/077-storekeeper-forms-batch.md
+          - Админ настраивает права пользователя: articles/workflows/078-admin-manages-permissions.md
+          - Пользователь создаёт тикет в поддержку: articles/workflows/079-user-creates-support-ticket.md
+          - Полный каталог сценариев: WORKFLOW_CATALOG.md
+      - Справочник экранов:
+          - Обзор: reference/README.md
+          - Полный каталог экранов: SCREEN_CATALOG.md
+          - Список заказов: articles/screens/orders-list.md
+          - Модалка создания заказа: articles/screens/create-order-modal.md
+          - Инвентарь — таблица товаров: articles/screens/inventory-products.md
+          - Товар — карточка (детали): articles/screens/product-detail.md
+          - Склад — коробки на складе: articles/screens/warehouse-in-stock.md
+          - Мой склад (Storekeeper): articles/screens/my-warehouse.md
+          - "Партии — отправленные": articles/screens/batches-sent.md
+          - Пользователи: articles/screens/users.md
+          - Права пользователей: articles/screens/permissions.md
+          - Сообщения (чат): articles/screens/messages.md
+          - Уведомления: articles/screens/notifications.md
+          - Поддержка: articles/screens/support.md
+          - Модалки — справочник: reference/modals.md
+          - Таблицы — справочник: reference/tables.md
+      - Роли и доступ:
+          - Permissions Matrix: PERMISSIONS_MATRIX.md
+          - Роуты по ролям: reference/routes-by-role.md
+          - Entity States: ENTITY_STATES.md
+  - Обучение:
+      - Академия:
+          - Термины маркетплейса: articles/academy/025-marketplace-terms.md
+          - Что такое ASIN: articles/academy/026-asin.md
+          - Что такое SKU: articles/academy/027-sku.md
+          - ASIN vs SKU vs FNSKU: articles/academy/028-asin-vs-sku-vs-fnsku.md
+          - Что такое FBA: articles/academy/029-fba.md
+          - Что такое FBM: articles/academy/030-fbm.md
+          - Что такое MOQ: articles/academy/031-moq.md
+          - Что такое бренд: articles/academy/032-brand.md
+          - Что такое категория: articles/academy/033-category.md
+          - Что такое вариация: articles/academy/034-variation.md
+          - Баркод / UPC / EAN: articles/academy/035-barcode-upc-ean.md
+          - Что такое Amazon SP-API: articles/academy/036-amazon-sp-api.md
+          - Что такое прогноз запасов: articles/academy/037-inventory-forecasting.md
+          - Что такое out of stock: articles/academy/038-out-of-stock.md
+          - Что такое дозакупка (restock): articles/academy/039-restock.md
+          - Что такое Buy Box: articles/academy/040-buy-box.md
+          - Основы PPC: articles/academy/041-ppc-basics.md
+          - ACoS / TACoS / ROAS: articles/academy/042-acos-tacos-roas.md
+          - Что такое юнит-экономика: articles/academy/043-unit-economics.md
+          - Private Label vs Wholesale: articles/academy/044-private-label-vs-wholesale.md
+  - Контент:
+      - Статьи для маркетинга:
+          - Что такое Seller Exchange: articles/pillar/080-what-is-seller-exchange.md
+          - Полный гайд по построению Amazon-бизнеса: articles/pillar/081-complete-guide-amazon-business.md
+          - Автоматизация маркетплейса: articles/pillar/082-marketplace-automation.md
+          - Как управлять запасами Amazon: articles/pillar/083-how-to-manage-inventory.md
+          - Как избежать out of stock: articles/pillar/084-how-to-prevent-out-of-stock.md
+          - Как организовать команду Amazon-продавца: articles/pillar/085-organize-seller-team.md
+          - Единое рабочее пространство для операций: articles/pillar/086-one-workspace.md
+          - "Feature Stories v3": "AS Feature Stories v3.md"
+          - "Feature Stories — Production Roadmap": "AS Feature Stories Production Roadmap.md"
+          - "Feature Stories Matrix (EN)": AS_Feature_Stories_Matrix_EN.md
+          - "Feature Stories Matrix (RU)": AS_Feature_Stories_Matrix_RU.md
+          - "Feature Stories Matrix (UA)": AS_Feature_Stories_Matrix_UA.md
+          - "Seller Exchange — Feature Marketing Matrix": "Seller Exchange — Feature Marketing Matrix.md"
+  - Документация:
+      - Справочник домена:
+          - Domain Model: DOMAIN_MODEL.md
+          - "Domain Model — открытые вопросы": DOMAIN_MODEL_OPEN_QUESTIONS.md
+          - Entity Relationships: ENTITY_RELATIONSHIPS.md
+          - Glossary: GLOSSARY.md
+          - Information Architecture: INFORMATION_ARCHITECTURE.md
+      - Управление базой знаний:
+          - Manifesto: MANIFESTO.md
+          - Style Guide: STYLE_GUIDE.md
+          - Contributing: CONTRIBUTING.md
+          - Article Template: ARTICLE_TEMPLATE.md
+          - Localization Guide: LOCALIZATION_GUIDE.md
+          - Production Pipeline: DOCUMENTATION_PRODUCTION_PIPELINE.md
+          - Content Roadmap: CONTENT_ROADMAP.md
+          - Release Checklist: RELEASE_CHECKLIST.md
